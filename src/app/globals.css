@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: light;
+}
+
+@theme inline {
+  --color-sand-25: #fbf7f3;
+  --color-sand-50: #f7f1eb;
+  --color-terracotta-300: #f2b192;
+  --color-terracotta-500: #c86b44;
+  --color-terracotta-600: #ad6345;
+  --color-terracotta-700: #8b4b35;
+  --color-primary: #B38147;
+  --color-secondary: #515151;
+  --color-tertiary: #E6BC8B;
+  --font-sans: var(--font-sans);
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans), system-ui, -apple-system, BlinkMacSystemFont,
+      "Segoe UI", sans-serif;
+    background-color: var(--color-sand-25);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-sans), system-ui, -apple-system, BlinkMacSystemFont,
+      "Segoe UI", sans-serif;
+  }
+}
+
+@layer utilities {
+  .prose-content {
+    @apply space-y-5 text-base leading-relaxed text-stone-700;
+  }
+
+  .prose-content h2 {
+    @apply mt-10 font-sans text-3xl text-stone-900;
+  }
+
+  .prose-content h3 {
+    @apply mt-8 font-sans text-2xl text-stone-900;
+  }
+
+  .prose-content ul {
+    @apply list-disc pl-6;
+  }
+
+  .prose-content ol {
+    @apply list-decimal pl-6;
+  }
+}
