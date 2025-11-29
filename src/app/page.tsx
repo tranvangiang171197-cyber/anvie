@@ -364,7 +364,7 @@ export default async function HomePage() {
             {rules.map((item) => (
               <div
                 key={item.title}
-                className=" bg-black/60 p-6 text-left backdrop-blur flex flex-col justify-between min-h-[433px]"
+                className=" bg-black/60 p-6 text-left  flex flex-col justify-between min-h-[433px]"
               >
                 <div>
                 <p className=" font-semibold text-[#B38147]">
