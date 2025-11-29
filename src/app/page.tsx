@@ -3,7 +3,7 @@ import { ButtonLink } from "@/components/button-link";
 import { ArticleCard } from "@/components/content-card";
 import { getCollectionSummaries } from "@/lib/content";
 import { ServicesSection } from "@/components/services-section";
-
+import Image from "next/image";
 const hero = {
   title1: "Sống An Vi ",
   title2: "Ở An Yên",
@@ -75,19 +75,22 @@ const scenarioCards = [
 
 const testimonials = [
   {
-    name: "Anh Hưng",
+    name: "Anh Hùng",
     quote:
-      "Diện tích nhà không lớn, nhưng nhờ Anvie mà mọi thứ bố trí rất hợp lý. Đội ngũ thi công chăm chút, không phát sinh chi phí bất ngờ.",
+      "Diện tích nhà mình không lớn, nhưng nhờ Anvie Home mà mọi thứ bố trí rất hợp lý. Phòng khách, bếp, phòng ngủ đều vừa tiện vừa đẹp. Đội ngũ thi công làm việc cẩn thận, nhanh chóng, không phát sinh gì bất ngờ. Mình đặc biệt ưng phần tủ bếp và kệ tivi, rất tiện sử dụng. Cảm giác sống trong nhà mới thoải mái hơn hẳn.",
+    avatar: "/home/anh_hung.png", // Thay bằng đường dẫn avatar thực tế
   },
   {
     name: "Chị Hoa",
     quote:
-      "Ban đầu khá lo nhưng sau khi bàn giao thấy rất ổn. Nội thất đẹp, gia đình ai cũng thích. Đội ngũ nhiệt tình và trách nhiệm.",
+      "Ban đầu cũng hơi lo nhưng làm xong thấy khá ổn. Nội thất đẹp, tiện dụng, gia đình ai cũng thích. Mình thấy đội ngũ làm việc nhiệt tình và có trách nhiệm.",
+    avatar: "/home/chi_hoa.png", // Thay bằng đường dẫn avatar thực tế
   },
   {
     name: "Anh Long",
     quote:
-      "Thi công đúng 3D đã duyệt, màu sắc hài hòa, ánh sáng tự nhiên vừa đủ. Giá cả minh bạch và không phát sinh.",
+      "Lúc đầu cũng hơi lo vì chưa từng thuê thiết kế trọn gói, nhưng Anvie làm việc chuyên nghiệp đấy. Khi thi công xong thì đúng như cam kết và bản vẽ 3D trước đấy. Các chi tiết nhỏ  chăm chút kỹ, màu sắc hài hòa, ánh sáng tự nhiên vừa đủ. Giá cả không phát sinh lặt vặt. Nhìn tổng thể thì mình cảm thấy rất vừa ý.",
+    avatar: "/home/anh_long.png", // Thay bằng đường dẫn avatar thực tế
   },
 ];
 
@@ -96,41 +99,45 @@ const milestones = [
     value: "2,500+",
     label: "m²",
     description:
-      "Xưởng sản xuất rộng hơn 2.500 m² với máy móc hiện đại đáp ứng linh hoạt nhu cầu thiết kế & thi công.",
+      "Xưởng sản xuất rộng hơn 2.500m², trang bị máy móc hiện đại đạt chuẩn châu Âu – đáp ứng linh hoạt mọi nhu cầu thiết kế và thi công",
     image:
-      "https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1200&q=80",
+      "/home/mile_1.png",
   },
   {
     value: "95",
     label: "%",
     description:
-      "Công trình bàn giao bám sát bản vẽ thiết kế 3D đến 95%, đảm bảo “ngôi nhà trên giấy” bước ra đời thực như mong đợi.",
-    image:
-      "https://images.unsplash.com/photo-1505691722887-195b0c08a59d?auto=format&fit=crop&w=1200&q=80",
+      "Công trình bàn giao bám sát bản vẽ thiết kế 3D đến 95%, đảm bảo “ngôi nhà trên giấy” bước ra đời thực như bạn mong đợi",
+      image:
+      "/home/mile_2.png",
   },
   {
     value: "400+",
     label: "Công trình",
     description:
-      "Hơn 400 công trình hoàn thiện từ căn hộ, nhà phố đến biệt thự, nhà hàng — mỗi nơi đều có câu chuyện riêng.",
-    image:
-      "https://images.unsplash.com/photo-1479839672679-a46483c0e7c8?auto=format&fit=crop&w=1200&q=80",
+      "Hơn 400 công trình hoàn thiện – từ căn hộ, nhà phố, biệt thự đến nhà hàng, quán cà phê – đều mang dấu ấn riêng của gia chủ",
+      image:
+      "/home/mile_3.png",
   },
 ];
 
 const rules = [
   {
     title: "Không thợ khoán",
+    image:
+      "/home/icon_1.png",
     description:
       "Tất cả hạng mục thi công đều do đội ngũ thợ chính thức của Anvie Home thực hiện.",
   },
   {
-    title: "Không trung gian",
+    title: "Không trung gian", image:
+    "/home/icon_2.png",
     description:
       "Khách hàng làm việc trực tiếp với Anvie Home, không qua bên thứ ba.",
   },
   {
-    title: "Không chi phí phát sinh",
+    title: "Không chi phí phát sinh", image:
+    "/home/icon_3.png",
     description:
       "Cam kết báo giá minh bạch, trọn gói ngay từ đầu, không phát sinh thêm chi phí.",
   },
@@ -206,7 +213,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section className="">
+      <section className="w-[1170px] mx-auto">
         <div className="space-y-3">
           <h3 className="font-sans text-[32px] font-semibold text-black">
             Nếu có số tiết kiệm 100 triệu, <br /> bạn có thể làm gì với không gian sống của
@@ -266,100 +273,115 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section className=" bg-[#f7f4f1] px-6 py-12">
-        <h3 className="text-center font-sans text-[32px] font-semibold text-black">
-        Trăm Lời Quảng Cáo Không Bằng Một Feedback
+      <section className="bg-[#f7f4f1] px-6 py-12 min-h-[700px] flex items-center justify-center flex-col">
+        <div className="w-[1170px] text-left">
+        <h3 className="text-left font-sans text-[32px] font-semibold text-black ">
+          Trăm Lời Quảng Cáo Không Bằng Một Feedback
         </h3>
-        <p className="mt-2 text-center text-[18px] text-[#515151] font-normal">
+        <p className="mt-2 text-left text-[18px] text-[#515151] font-normal">
           Khách hàng nói gì về dịch vụ thiết kế nội thất & kiến trúc tại Anvie Home?
-        </p>
-        <div className="mt-8 grid gap-6 md:grid-cols-3">
+        </p>  </div>
+        <div className="mt-8 grid gap-6 md:grid-cols-3 max-w-[1170px] mx-auto">
           {testimonials.map((testimonial) => (
             <div
               key={testimonial.name}
-              className="x bg-white px-6 py-6 shadow-[0_20px_60px_rgba(15,23,42,0.1)]"
+              className="bg-white rounded-[24px] px-6 py-6 shadow-[0_20px_60px_rgba(15,23,42,0.1)] relative"
             >
-              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#d7924c]">
-                {testimonial.name}
-              </p>
-              <p className="mt-4 text-sm text-stone-600">
-                “{testimonial.quote}”
-              </p>
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-12 h-12 rounded-full bg-gray-200 overflow-hidden flex-shrink-0">
+                  <img
+                    src={testimonial.avatar}
+                    alt={testimonial.name}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <p className="text-base font-bold text-[#B38147]">
+                  {testimonial.name}
+                </p>
+              </div>
+              <div className="relative">
+                <span className="text-[48px] leading-none text-[#E6BC8B] font-bold absolute -top-2 -left-2">
+                “
+                </span>
+                <p className="text-base text-black font-normal leading-relaxed pt-6 pl-4 py-6">
+                  {testimonial.quote}
+                </p>
+                <span className="text-[48px] leading-none text-[#E6BC8B] font-bold absolute -bottom-6 -right-2">
+                ”
+                </span>
+              </div>
             </div>
           ))}
         </div>
       </section>
 
-      <section className="space-y-6">
-        <h3 className="font-sans text-3xl text-stone-900">
-          Những Cột Mốc Đáng “Khoe” Của Anvie
+      <section className="space-y-6 w-[1170px] mx-auto">
+        <h3 className="font-sans text-[32px] font-semibold text-black text-left">
+        Những Cột Mốc <br />
+        Đáng "Khoe" Của Anvie
         </h3>
         <div className="grid gap-6 md:grid-cols-3">
           {milestones.map((milestone) => (
             <div
               key={milestone.label}
-              className="relative overflow-hidden "
+              className="h-[480px] bg-cover bg-center"
+              style={{ backgroundImage: `url(${milestone.image})` }}
             >
-              <div
-                className="h-[360px] bg-cover bg-center"
-                style={{ backgroundImage: `url(${milestone.image})` }}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/85 to-transparent" />
-              <div className="absolute inset-x-0 bottom-0 space-y-2 px-6 pb-8 text-white">
-                <p className="text-4xl font-bold">
+             
+              <div className="flex flex-col justify-between p-6 text-white w-full h-full">
+                <div>
+                <p className="text-[64px] font-bold">
                   {milestone.value}
-                  <span className="ml-1 text-xl">{milestone.label}</span>
                 </p>
-                <p className="text-xs text-white/80">{milestone.description}</p>
+                <span className="ml-1 text-[32px] font-semibold">{milestone.label}</span>
+
+                </div>
+               
+                <div>
+                <p className="text-base text-white">{milestone.description}</p>
+
+                </div>
               </div>
             </div>
           ))}
         </div>
       </section>
 
-      <section className="relative overflow-hidden  text-white">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage:
-              "https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1600&q=80",
-          }}
-        />
-        <div className="absolute inset-0 bg-black/60" />
-        <div className="relative z-10 px-6 py-12">
-          <h3 className="text-center font-sans text-3xl">Quy Tắc 3 Không</h3>
-          <div className="mt-8 grid gap-6 md:grid-cols-3">
-            {rules.map((rule) => (
+      <section className="relative overflow-hidden min-h-[720px] text-white flex items-center justify-center flex-col"
+        style={{
+          backgroundImage:
+            "url('/home/quy_tac.png')",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+        }}
+      >
+      
+         <h3 className="font-sans text-[32px] font-semibold text-white text-center">
+         Quy Tắc 3 Không
+        </h3>
+        <div className="mt-10 grid gap-6 md:grid-cols-3 max-w-[1170px] mx-auto">
+            {rules.map((item) => (
               <div
-                key={rule.title}
-                className=" bg-white/08 p-6 text-left backdrop-blur"
+                key={item.title}
+                className=" bg-black/60 p-6 text-left backdrop-blur flex flex-col justify-between min-h-[433px]"
               >
-                <p className="text-xl font-semibold text-white">{rule.title}</p>
-                <p className="mt-2 text-sm text-white/80">{rule.description}</p>
+                <div>
+                <p className=" font-semibold text-[#B38147]">
+                  <Image src={item.image} alt={item.title} width={60} height={60} />
+                </p>
+                </div>
+              
+                <div>
+                <p className="mt-2 text-[32px] text-white font-bold">{item.title}</p>
+                <p className="mt-2 text-base text-white font-normal">{item.description}</p>
+                </div>
               </div>
             ))}
           </div>
-        </div>
       </section>
 
-      <section className="space-y-6">
-        <SectionHeading
-          title="Tin tức nổi bật"
-          description="Những câu chuyện vật liệu, công nghệ và phong cách sống mới nhất."
-        />
-        <div className="grid gap-4 md:grid-cols-3">
-          {news.map((article) => (
-            <ArticleCard
-              key={article.slug}
-              href={`/tin-tuc/${article.slug}`}
-              title={article.title}
-              summary={article.summary}
-              date={article.date}
-              category={article.category}
-            />
-          ))}
-        </div>
-      </section>
+    
     </>
   );
 }
