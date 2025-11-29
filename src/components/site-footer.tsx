@@ -24,18 +24,20 @@ export function SiteFooter() {
   return (
     <footer className="mt-20 bg-[#B38147] h-[540px] flex items-center justify-center flex-col w-full">
       <div className="mx-auto max-w-[1170px] px-6 py-12">
-        <div className="grid gap-8 md:grid-cols-4">
-          {/* Column 1: Logo & Contact */}
-          <div className="space-y-6 text-white">
-          <Link href="/" className="flex items-center gap-1">
-          <Image src="/logo_123.svg" alt="Anvie Home" width={62} height={62} />
-          <div className="mt-2">
-          <p className="text-[14px] font-normal uppercase">Anvie Home</p>
-          <p className="text-[8px] font-normal">Architecture & Interior</p>
+      <div  className="flex items-center gap-1 text-white mb-6">
+              <Link href="/" >
+              <Image src="/logo_123.svg" alt="Anvie Home" width={62} height={62} />
+              </Link>
+              <div className="mt-2">
+                <p className="text-[14px] font-normal uppercase">Anvie Home</p>
+                <p className="text-[8px] font-normal">Architecture & Interior</p>
+              </div>  
           </div>
-       
-        </Link>
-            <div className="space-y-4 text-sm text-white">
+        <div className="grid gap-10 md:grid-cols-12">
+          {/* Column 1: Logo & Contact */}
+          <div className="space-y-6 text-white col-span-5">
+          
+            <div className="space-y-4 text-base text-white">
               <div className="flex items-start gap-3">
                 <svg className="w-5 h-5 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
@@ -53,7 +55,7 @@ export function SiteFooter() {
                 <svg className="w-5 h-5 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
                 </svg>
-                <span>Địa chỉ: Số 45, LK4 - KĐT Lộc Ninh,<br />Phường Chương Mỹ, Hà Nội</span>
+                <span>Địa chỉ: Số 45, LK4 - KĐT Lộc Ninh, Phường <br /> Chương Mỹ, Hà Nội</span>
               </div>
             </div>
             <div className="flex items-center gap-4">
@@ -74,11 +76,12 @@ export function SiteFooter() {
               </a>
             </div>
           </div>
+      <div className="col-span-7 grid gap-16 md:grid-cols-12">
 
           {/* Column 2: Dịch vụ nổi bật */}
-          <div>
-            <p className="font-semibold text-white mb-4">Dịch vụ nổi bật</p>
-            <div className="flex flex-col gap-3 text-sm text-white">
+          <div className="col-span-4">
+            <p className="font-[400] text-[16px] font-normal text-white mb-4">Dịch vụ nổi bật</p>
+            <div className="flex flex-col gap-3 text-base font-semibold text-white">
               {serviceLinks.map((item) => (
                 <Link key={item} href="#" className="hover:text-white/80 transition">
                   {item}
@@ -88,9 +91,9 @@ export function SiteFooter() {
           </div>
 
           {/* Column 3: Tin tức nổi bật */}
-          <div>
-            <p className="font-semibold text-white mb-4">Tin tức nổi bật</p>
-            <div className="flex flex-col gap-3 text-sm text-white">
+          <div className="col-span-4">
+            <p className="font-[400] text-[16px] font-normal text-white mb-4">Tin tức nổi bật</p>
+            <div className="flex flex-col gap-3 text-base font-semibold text-white">
               {newsroom.map((item) => (
                 <Link key={item} href="#" className="hover:text-white/80 transition">
                   {item}
@@ -100,15 +103,16 @@ export function SiteFooter() {
           </div>
 
           {/* Column 4: Hỗ trợ khách hàng */}
-          <div>
-            <p className="font-semibold text-white mb-4">Hỗ trợ khách hàng</p>
-            <div className="flex flex-col gap-3 text-sm text-white">
+          <div className="col-span-4">
+            <p className="font-[400] text-[16px] font-normal text-white mb-4">Hỗ trợ khách hàng</p>
+            <div className="flex flex-col gap-3 text-base font-semibold text-white">
               {supportLinks.map((item) => (
                 <Link key={item} href="#" className="hover:text-white/80 transition">
                   {item}
                 </Link>
               ))}
             </div>
+          </div>
           </div>
         </div>
       </div>

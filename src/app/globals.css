@@ -14,7 +14,7 @@
   --color-primary: #B38147;
   --color-secondary: #515151;
   --color-tertiary: #E6BC8B;
-  --font-sans: var(--font-sans);
+  --font-family-sans: var(--font-sans), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
 @layer base {
