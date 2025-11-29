@@ -23,10 +23,10 @@ export function ButtonLink({ href, label, variant = "primary" }: ButtonLinkProps
   return (
     <Link
       href={href}
-      className={`inline-flex items-center justify-center h-10 px-5 py-2 text-base font-medium transition ${variantClasses[variant]}`}
+      className={`inline-flex items-center justify-center h-10 px-5 py-2 text-base font-normal transition ${variantClasses[variant]}`}
     >
       {label} 
-      <IoArrowForwardSharp className="ml-2 w-5 h-5" />
+      <IoArrowForwardSharp className="ml-2 w-5 h-5 text-white" />
     </Link>
   );
 }

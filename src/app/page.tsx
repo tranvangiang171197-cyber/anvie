@@ -2,7 +2,7 @@ import { SectionHeading } from "@/components/section-heading";
 import { ButtonLink } from "@/components/button-link";
 import { ArticleCard } from "@/components/content-card";
 import { getCollectionSummaries } from "@/lib/content";
-import { IoArrowForwardSharp } from "react-icons/io5";
+import { ServicesSection } from "@/components/services-section";
 
 const hero = {
   title1: "Sống An Vi ",
@@ -15,83 +15,61 @@ const hero = {
     "/home/hero2.png",
 };
 
-const services = [
-  {
-    title: "Thiết kế kiến trúc",
-    description:
-      "Giải pháp không gian sống chuẩn thẩm mỹ & công năng.",
-    image:
-      "https://images.unsplash.com/photo-1479839672679-a46483c0e7c8?auto=format&fit=crop&w=1400&q=80",
-    showDescription: true,
-    showArrow: true,
-  },
-  {
-    title: "Thiết kế nội thất",
-    description: "Ngôn ngữ nội thất đậm chất Anvie, phù hợp từng gia chủ.",
-    image:
-      "https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1400&q=80",
-    showDescription: false,
-    showArrow: false,
-  },
-  {
-    title: "Thi công nội thất trọn gói",
-    description: "Đồng hành từ xưởng tới bàn giao chìa khóa.",
-    image:
-      "https://images.unsplash.com/photo-1493667588038-9401340f2d21?auto=format&fit=crop&w=1400&q=80",
-    showDescription: false,
-    showArrow: false,
-  },
-];
 
 const spaceCriteria = [
   {
     key: "S",
     title: "Smart",
+    description_title: "Tối ưu công năng hiệu năng.",
     description:
-      "Tối ưu công năng hiệu năng. Không gian sống được thiết kế tiện nghi, hài hòa và bền vững.",
+      "Không gian sống được thiết kế tiện nghi, hài hòa và bền vững",
   },
   {
     key: "P",
     title: "Pure Aesthetic",
+    description_title: "Thẩm mỹ tinh tế",
     description:
-      "Thẩm mỹ tinh tế. Mỗi chi tiết đều được chăm chút để mang lại vẻ đẹp chuẩn gu.",
+      "Mỗi chi tiết đều được chăm chút để mang lại vẻ đẹp chuẩn gu, giàu cảm xúc",
   },
   {
     key: "A",
     title: "Assured Price",
+    description_title: "Giá minh bạch",
     description:
-      "Giá minh bạch. Nói không với phát sinh – cam kết báo giá rõ ràng ngay từ đầu.",
+      "Nói không với phát sinh - Cam kết báo giá rõ ràng ngay từ đầu",
   },
   {
     key: "C",
     title: "Craftsmanship",
+    description_title: "Vật liệu tốt Tay nghề cao",
     description:
-      "Vật liệu tốt, tay nghề cao. Lựa chọn vật liệu bền đẹp, thi công bởi đội ngũ uy tín.",
+      "Lựa chọn vật liệu bền đẹp, thi công bởi đội ngũ uy tín",
   },
   {
     key: "E",
     title: "Enduring",
+    description_title: "Đồng hành lâu dài",
     description:
-      "Đồng hành lâu dài. Bảo hành và chăm sóc để bạn luôn an tâm với không gian sống.",
+      "Bảo hành và hỗ trợ tận tâm để bạn luôn an tâm trong từng không gian sống",
   },
 ];
 
 const scenarioCards = [
   {
-    title: "Quy Trình Thiết Kế Tại Anvie",
-    description:
-      "Bạn sẽ bất ngờ với những gì Anvie Home có thể làm được từ khoản tiết kiệm của bạn. Chúng tôi giúp biến ngân sách thành giải pháp phù hợp.",
+    title_1: "Quy Trình Thiết Kế  ",
+    title_2: " Tại Anvie",
+    
     button: "Chi tiết",
     image:
-      "https://images.unsplash.com/photo-1505691722887-195b0c08a59d?auto=format&fit=crop&w=1400&q=80",
+      "/home/what_we_do_1.png",
   },
   {
-    title: "Thiết Kế Nội Thất Theo Phong Cách Cá Nhân",
-    description:
-      "Chúng tôi đồng hành để tạo nên trải nghiệm sống chuẩn gu, giàu cảm xúc và bền vững.",
+    title_1: "Thiết Kế Nội Thất Theo",
+    title_2: " Phong Cách Cá Nhân",
+   
     button: "Đặt lịch",
     image:
-      "https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1400&q=80",
+    "/home/what_we_do_2.png",
   },
 ];
 
@@ -185,146 +163,114 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section className="space-y-6 max-w-[1170px] mx-auto px-6">
-        <div className="space-y-6">
-          <h2 className="font-sans text-[32px] font-bold text-black">Dịch Vụ Của Chúng Tôi</h2>
-          <p className="text-base text-secondary mt-2 font-normal max-w-3xl">
-            Anvie Home đồng hành cùng bạn qua từng bước — từ thiết kế kiến trúc,
-            thiết kế nội thất đến thi công hoàn thiện — để tạo nên một tổ ấm tinh tế,
-            tiện nghi và quan trọng nhất: thật sự bình an.
-          </p>
-        </div>
-        <div className="grid gap-6 md:grid-cols-4">
-          {services.map((service, index) => (
-            <div
-              key={service.title}
-              className={`group relative overflow-hidden transition-all duration-500 ${
-                index === 0 ? "md:col-span-2" : "md:col-span-1"
-              } md:hover:col-span-2`}
-            >
-              <div
-                className="h-[420px] bg-cover bg-center transition duration-500 group-hover:scale-105"
-                style={{ backgroundImage: `url(${service.image})` }}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
-              <div className="absolute inset-x-0 bottom-0 px-6 pb-8 text-white">
-                <div className="flex items-end justify-between gap-4">
-                  <div className="space-y-2 flex-1">
-                    <h3 className="text-2xl font-bold leading-tight">{service.title}</h3>
-                    <p className={`text-sm text-white/90 transition-opacity duration-300 ${
-                      index === 0 ? "opacity-100" : "opacity-0 group-hover:opacity-100"
-                    }`}>
-                      {service.description}
-                    </p>
-                  </div>
-                  <div className={`flex-shrink-0 w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center border border-white/30 transition-opacity duration-300 ${
-                    index === 0 ? "opacity-100" : "opacity-0 group-hover:opacity-100"
-                  }`}>
-                    <IoArrowForwardSharp className="w-5 h-5 text-white" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+      <ServicesSection />
 
-      <section className="relative overflow-hidden  text-white">
+      <section className="relative overflow-hidden min-h-[768px]  text-white">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage:
-              "https://images.unsplash.com/photo-1505691722887-195b0c08a59d?auto=format&fit=crop&w=1600&q=80",
+            backgroundImage:`url('/home/space_bg.png')` ,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat',
           }}
         />
-        <div className="absolute inset-0 bg-black/60" />
         <div className="relative z-10 px-6 py-14 text-center">
-          <p className="text-sm uppercase tracking-[0.35em] text-white/70">
-            Vì sao chọn Anvie Home?
+          <p className="text-[18px] text-center font-normal text-white">
+          Vì sao chọn Anvie Home cho thiết kế & thi công nội thất?
           </p>
-          <h3 className="mt-3 font-sans text-3xl">
-            5 tiêu chí S.P.A.C.E là kim chỉ nam để Anvie kiến tạo không gian sống an
-            yên
+          <h3 className="mt-3 text-center text-[32px] font-semibold text-white">
+          5 tiêu chí S.P.A.C.E (không gian sống) là kim chỉ nam để <br />
+          Anvie kiến tạo không gian sống an yên
           </h3>
           <div className="mt-10 grid gap-6 md:grid-cols-5">
             {spaceCriteria.map((item) => (
               <div
                 key={item.key}
-                className=" bg-white/10 p-5 text-left backdrop-blur"
+                className=" bg-black/32 p-5 text-left backdrop-blur flex flex-col justify-between min-h-[433px]"
               >
-                <p className="text-3xl font-semibold text-[#d7924c]">{item.key}</p>
-                <p className="mt-2 text-sm font-medium uppercase">{item.title}</p>
-                <p className="mt-2 text-xs text-white/80">{item.description}</p>
+                <div>
+                <p className="text-[64px] font-semibold text-[#B38147]">{item.key}</p>
+                <p className="mt-1 text-[24px] font-medium text-[#B38147] uppercase">{item.title}</p>
+                </div>
+              
+                <div>
+
+
+                <p className="mt-2 text-[18px] text-white font-bold">{item.description_title}</p>
+                <p className="mt-2 text-base text-white font-normal">{item.description}</p>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="grid gap-6 md:grid-cols-2">
+      <section className="">
         <div className="space-y-3">
-          <h3 className="font-sans text-3xl text-stone-900">
-            Nếu có số tiết kiệm 100 triệu, bạn có thể làm gì với không gian sống của
+          <h3 className="font-sans text-[32px] font-semibold text-black">
+            Nếu có số tiết kiệm 100 triệu, <br /> bạn có thể làm gì với không gian sống của
             mình?
           </h3>
-          <p className="text-sm text-stone-600">
+          <p className="text-[18px] text-[#515151] font-normal max-w-[520px]">
             Bạn sẽ bất ngờ với những gì Anvie Home có thể làm được. Chúng tôi sẽ giúp
             biến khoản tiết kiệm đó thành giải pháp thiết kế và thi công phù hợp riêng
             cho bạn.
           </p>
         </div>
-        <div className="grid gap-4">
+        <div className="grid gap-6 md:grid-cols-2 mt-6">
           {scenarioCards.map((card) => (
             <div
-              key={card.title}
-              className="overflow-hidden  border border-stone-200/80 bg-white shadow-[0_25px_80px_rgba(15,23,42,0.08)]"
+              key={card.title_1}
+              className="overflow-hidden  "
             >
               <div
-                className="h-48 bg-cover bg-center"
+                className="min-h-[400px] bg-cover bg-center flex flex-col justify-between"
                 style={{ backgroundImage: `url(${card.image})` }}
-              />
-              <div className="flex flex-col gap-3 px-6 py-6 md:flex-row md:items-center md:justify-between">
-                <div>
-                  <h4 className="font-sans text-2xl text-stone-900">
-                    {card.title}
+              ><div></div>
+              <div className="flex flex-col gap-3 px-6 py-6 md:flex-row md:items-center md:justify-between h-[106px ] bg-black/32 backdrop-blur">
+                <div className="">
+                  <h4 className="text-[24px] font-semibold text-white">
+                    {card.title_1}  <br /> {card.title_2}
                   </h4>
-                  <p className="mt-2 text-sm text-stone-600">
-                    {card.description}
-                  </p>
+                  
                 </div>
                 <ButtonLink href="/lien-he" label={card.button} />
               </div>
             </div>
+            </div>
+
           ))}
         </div>
       </section>
 
-      <section className="relative overflow-hidden  text-white">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage:
-              "https://images.unsplash.com/photo-1505692989980-7f381962d7d8?auto=format&fit=crop&w=1600&q=80",
-          }}
-        />
-        <div className="absolute inset-0 bg-black/55" />
+      <section className="relative overflow-hidden  text-white min-h-[600px] flex items-center justify-center"
+       style={{
+        backgroundImage:
+          `url('/home/da_hoan_thien.png')`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+      }}
+      >
+       
         <div className="relative z-10 flex flex-col items-center gap-4 px-6 py-20 text-center">
-          <h3 className="font-sans text-3xl">
-            Những Không Gian Anvie Đã Hoàn Thiện
+          <h3 className="font-sans text-[32px] font-semibold text-white">
+          Những Không Gian Anvie Đã Hoàn Thiện
           </h3>
-          <p className="max-w-3xl text-sm text-white/85">
-            Chúng tôi kiến tạo những tổ ấm hài hòa giữa thẩm mỹ, công năng và sự bình
-            yên, để mỗi ngôi nhà trở thành nơi bạn thật sự muốn trở về.
+          <p className="max-w-[650px] text-[20px] text-white font-[300]">
+          Chúng tôi kiến tạo những tổ ấm hài hòa giữa thẩm mỹ, công năng và
+          sự bình yên, để mỗi ngôi nhà trở thành nơi bạn thật sự muốn trở về
           </p>
-          <ButtonLink href="/du-an" label="Xem thêm" variant="ghostLight" />
+          <ButtonLink href="/du-an" label="Xem thêm"  />
         </div>
       </section>
 
       <section className=" bg-[#f7f4f1] px-6 py-12">
-        <h3 className="text-center font-sans text-3xl text-stone-900">
-          Trăm Lời Quảng Cáo Không Bằng Một Feedback
+        <h3 className="text-center font-sans text-[32px] font-semibold text-black">
+        Trăm Lời Quảng Cáo Không Bằng Một Feedback
         </h3>
-        <p className="mt-2 text-center text-sm text-stone-500">
+        <p className="mt-2 text-center text-[18px] text-[#515151] font-normal">
           Khách hàng nói gì về dịch vụ thiết kế nội thất & kiến trúc tại Anvie Home?
         </p>
         <div className="mt-8 grid gap-6 md:grid-cols-3">
