@@ -207,10 +207,10 @@ export default async function AnViAnYenPage() {
               Trong 5 năm tới, Anvie mong muốn
             </h2>
           </AnimateOnScroll>
-          <div className="grid gap-4 md:gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-4 md:gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-stretch">
             {futureGoals.map((goal, index) => (
-              <AnimateOnScroll key={index} animation="scaleIn" delay={index * 0.1} duration={0.6}>
-                <div className="bg-white rounded-[24px] p-4 md:p-6 border border-[#B38147] shadow-sm">
+              <AnimateOnScroll key={index} animation="scaleIn" delay={index * 0.1} duration={0.6} >
+                <div className="bg-white rounded-[24px] min-h-[220px] p-4 md:p-6 border border-[#B38147] shadow-sm">
                   <div className="mb-4">
                     <Image
                       src={goal.icon}
