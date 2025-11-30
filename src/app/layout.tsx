@@ -39,7 +39,7 @@ export default function RootLayout({
       <body className={`${sans.variable} bg-[#FFFFFF] text-stone-900 antialiased`}>
         <div className="min-h-screen bg-[#FFFFFF]">
           <SiteHeader />
-          <main className="mx-auto flex max-w-[1440px] flex-col gap-16 px-0 py-0">
+          <main className="mx-auto flex max-w-[1440px] flex-col gap-0  px-0 py-0">
             {children}
           </main>
           <SiteFooter />

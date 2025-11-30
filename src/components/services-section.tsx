@@ -26,9 +26,9 @@ export function ServicesSection() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(0);
 
   return (
-    <section className="space-y-6 xl:w-[1170px] mx-auto  px-4 md:px-0">
+    <section className="space-y-6 xl:w-[1170px] mx-auto  px-4 md:px-0 py-16 ">
       <div className="space-y-6 w-full">
-        <h2 className="font-sans text-[32px] font-bold text-black">Dịch Vụ Của Chúng Tôi</h2>
+        <h2 className="font-sans md:text-[32px] text-[24px] font-bold text-black">Dịch Vụ Của Chúng Tôi</h2>
         <p className="text-base text-secondary mt-2 font-normal max-w-3xl">
           Anvie Home đồng hành cùng bạn qua từng bước — từ thiết kế kiến trúc,
           thiết kế nội thất đến thi công hoàn thiện — để tạo nên một tổ ấm tinh tế,

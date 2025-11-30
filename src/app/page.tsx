@@ -20,35 +20,40 @@ const spaceCriteria = [
   {
     key: "S",
     title: "Smart",
-    description_title: "Tối ưu công năng hiệu năng.",
+    description_title__1: "Tối ưu công năng .",
+    description_title__2: " hiệu năng.",
     description:
       "Không gian sống được thiết kế tiện nghi, hài hòa và bền vững",
   },
   {
     key: "P",
     title: "Pure Aesthetic",
-    description_title: "Thẩm mỹ tinh tế",
+    description_title__1: "Thẩm mỹ ",
+    description_title__2: "tinh tế",
     description:
       "Mỗi chi tiết đều được chăm chút để mang lại vẻ đẹp chuẩn gu, giàu cảm xúc",
   },
   {
     key: "A",
     title: "Assured Price",
-    description_title: "Giá minh bạch",
+    description_title__1: "Giá ",
+    description_title__2: "minh bạch",
     description:
       "Nói không với phát sinh - Cam kết báo giá rõ ràng ngay từ đầu",
   },
   {
     key: "C",
     title: "Craftsmanship",
-    description_title: "Vật liệu tốt Tay nghề cao",
+    description_title__1: "Vật liệu tốt ",
+    description_title__2: "Tay nghề cao",
     description:
       "Lựa chọn vật liệu bền đẹp, thi công bởi đội ngũ uy tín",
   },
   {
     key: "E",
     title: "Enduring",
-    description_title: "Đồng hành lâu dài",
+    description_title__1: "Đồng hành ",
+    description_title__2: "lâu dài",
     description:
       "Bảo hành và hỗ trợ tận tâm để bạn luôn an tâm trong từng không gian sống",
   },
@@ -153,26 +158,26 @@ export default async function HomePage() {
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${hero.image1})` }}
         />
-        <div className="relative z-10 flex min-h-[400px] md:min-h-[720px] flex-col items-center justify-center gap-4 md:gap-6 text-center px-6 py-12 md:py-20">
-          <h1 className="font-bold text-2xl md:text-4xl leading-tight lg:text-[56px]">
+        <div className="relative z-10 flex min-h-[400px] md:min-h-[720px] flex-col items-center justify-center gap-4 md:gap-6 text-center px-6 py-16 md:py-20">
+          <h1 className="font-bold text-[32px] mt-8 md:mt-0   leading-tight md:text-[56px]">
             {hero.title1} <br />   {hero.title2} <br />
           </h1>
-          <p className="max-w-3xl text-sm md:text-base text-white lg:text-xl font-normal px-4">
+          <p className="max-w-3xl text-base text-white lg:text-xl font-normal px-4">
             {hero.subtitle}
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-4">
+          <div className="flex flex-wrap items-center justify-center gap-4 mt-4 md:mt-0">
             <ButtonLink href="/du-an" label="Khám phá ngay" />
           </div>
           <div className="mt-6 flex items-center gap-2">
-            <span className="h-1 w-8  bg-white" />
-            <span className="h-1 w-4  bg-white/40" />
+            <span className="h-2 w-8  bg-[#B38147] rounded-[12px]" />
+            <span className="h-2 w-2  bg-white rounded-full" />
           </div>
         </div>
       </section>
 
       <ServicesSection />
 
-      <section className="relative overflow-hidden min-h-[600px] md:min-h-[768px] text-white">
+      <section className="relative overflow-hidden min-h-[600px] md:min-h-[768px] text-white ">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
@@ -183,18 +188,18 @@ export default async function HomePage() {
           }}
         />
         <div className="relative z-10 px-6 py-8 md:py-14 text-center">
-          <p className="text-base md:text-[18px] text-center font-normal text-white">
+          <p className="text-sm md:text-[18px] text-center font-normal text-white">
           Vì sao chọn Anvie Home cho thiết kế & thi công nội thất?
           </p>
-          <h3 className="mt-3 text-center text-xl md:text-2xl lg:text-[32px] font-semibold text-white px-4">
+          <h3 className="mt-3 text-center text-[18px] md:text-[32px] font-semibold text-white px-4">
           5 tiêu chí S.P.A.C.E (không gian sống) là kim chỉ nam để <br className="hidden md:block" />
           Anvie kiến tạo không gian sống an yên
           </h3>
-          <div className="mt-6 md:mt-10 grid gap-4 md:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-5">
+          <div className="mt-6 md:mt-10 grid gap-4 md:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 px-4 md:px-0">
             {spaceCriteria.map((item) => (
               <div
                 key={item.key}
-                className="bg-black/32 p-4 md:p-5 text-left backdrop-blur flex flex-col justify-between min-h-[300px] md:min-h-[433px]"
+                className="bg-black/32 p-4 md:p-5 text-left backdrop-blur flex flex-col justify-between min-h-[238px] md:min-h-[433px]"
               >
                 <div>
                 <p className="text-4xl md:text-[64px] font-semibold text-[#B38147]">{item.key}</p>
@@ -202,7 +207,7 @@ export default async function HomePage() {
                 </div>
               
                 <div>
-                <p className="mt-2 text-base md:text-[18px] text-white font-bold">{item.description_title}</p>
+                <p className="mt-2 text-base md:text-[18px] text-white font-bold">{item.description_title__1} <br /> {item.description_title__2}</p>
                 <p className="mt-2 text-sm md:text-base text-white font-normal">{item.description}</p>
                 </div>
               </div>
@@ -211,9 +216,9 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section className="max-w-[1170px] mx-auto py-8 md:py-12 w-full  px-4 md:px-0">
+      <section className="max-w-[1170px] mx-auto py-8 md:py-16 w-full  px-4 md:px-0">
         <div className="space-y-3">
-          <h3 className="font-sans text-xl md:text-2xl lg:text-[32px] font-semibold text-black">
+          <h3 className=" text-[24px] md:text-[32px] font-semibold text-black">
             Nếu có số tiết kiệm 100 triệu, <br className="hidden md:block" /> bạn có thể làm gì với không gian sống của
             mình?
           </h3>
@@ -230,10 +235,10 @@ export default async function HomePage() {
               className="overflow-hidden  "
             >
               <div
-                className="min-h-[400px] bg-cover bg-center flex flex-col justify-between"
+                className="md:min-h-[400px] min-h-[238px] bg-cover bg-center flex flex-col justify-between"
                 style={{ backgroundImage: `url(${card.image})` }}
               ><div></div>
-              <div className="flex flex-row gap-3 px-4 md:px-6 py-4 md:py-6 items-center justify-between min-h-[106px] bg-black/32 backdrop-blur">
+              <div className="flex flex-row gap-3 px-4 md:px-6 py-4 md:py-6 items-center justify-between md:min-h-[106px] min-h-[64px] bg-black/32 backdrop-blur">
                 <div className="">
                   <h4 className="text-base md:text-[24px] font-semibold text-white">
                     {card.title_1}  <br /> {card.title_2}
@@ -259,19 +264,19 @@ export default async function HomePage() {
       }}
       >
        
-        <div className="relative flex flex-col items-center gap-3 md:gap-4 px-6 py-12 md:py-20 text-center">
-          <h3 className="font-sans text-xl md:text-2xl lg:text-[32px] font-semibold text-white px-4">
+        <div className="relative flex flex-col items-center gap-3 md:gap-4 px-6 py-16 md:py-20 text-center">
+          <h3 className="font-sans text-[24px] md:text-[32px] font-semibold text-white px-4">
           Những Không Gian Anvie Đã Hoàn Thiện
           </h3>
-          <p className="max-w-[650px] text-base md:text-lg lg:text-[20px] text-white font-[300] px-4">
+          <p className="max-w-[650px] text-base md:text-[20px] text-white font-[300] px-4 mb-4 md:mb-0">
           Chúng tôi kiến tạo những tổ ấm hài hòa giữa thẩm mỹ, công năng và
           sự bình yên, để mỗi ngôi nhà trở thành nơi bạn thật sự muốn trở về
           </p>
-          <ButtonLink href="/du-an" label="Xem thêm"  />
+          <ButtonLink href="/du-an" label="Xem thêm" />
         </div>
       </section>
 
-      <section className="bg-[#f7f4f1] px-6 py-8 md:py-12 min-h-[500px] md:min-h-[700px] flex items-center justify-center flex-col">
+      <section className="bg-[#f7f4f1] px-6 py-8 md:py-16 min-h-[500px] md:min-h-[700px] flex items-center justify-center flex-col">
         <div className="max-w-[1170px] w-full text-left">
         <h3 className="text-left font-sans text-xl md:text-2xl lg:text-[32px] font-semibold text-black">
           Trăm Lời Quảng Cáo Không Bằng Một Feedback
@@ -313,7 +318,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section className="space-y-4 md:space-y-6 max-w-[1170px] mx-auto  py-8 md:py-12 w-full">
+      <section className="space-y-4 md:space-y-6 max-w-[1170px] mx-auto px-4 md:px-0 py-8 md:py-16 w-full">
         <h3 className="font-sans text-xl md:text-2xl lg:text-[32px] font-semibold text-black text-left">
         Những Cột Mốc <br className="hidden md:block" />
         Đáng "Khoe" Của Anvie
@@ -345,7 +350,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden min-h-[500px] md:min-h-[720px] text-white flex items-center justify-center flex-col px-6 py-8 md:py-12"
+      <section className="relative overflow-hidden min-h-[500px] md:min-h-[720px] text-white flex items-center justify-center flex-col px-6 py-8 md:py-16"
         style={{
           backgroundImage:
             "url('/home/quy_tac.png')",
@@ -362,7 +367,7 @@ export default async function HomePage() {
             {rules.map((item) => (
               <div
                 key={item.title}
-                className="bg-black/60 p-4 md:p-6 text-left flex flex-col justify-between min-h-[300px] md:min-h-[433px]"
+                className="bg-black/60 p-4 md:p-6 text-left flex flex-col justify-between min-h-[300px] md:min-h-[400px]"
               >
                 <div>
                 <p className="font-semibold text-[#B38147]">

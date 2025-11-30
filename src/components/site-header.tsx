@@ -46,13 +46,16 @@ export function SiteHeader() {
 
   return (
     <>
-      <header className="pointer-events-none fixed left-1/2 top-6 z-30 w-full -translate-x-1/2 px-4">
-        <div className="pointer-events-auto mx-auto flex max-w-[1170px] h-[80px] items-center justify-between bg-black/40 px-10 py-4 text-white shadow-[0_20px_60px_rgba(19,18,16,0.35)] backdrop-blur-[20px]">
-          <Link href="/" className="flex items-center gap-1">
-            <Image src="/logo_123.svg" alt="Anvie Home" width={45} height={45} />
+      <header className="pointer-events-none fixed left-1/2 md:top-6 top-4 z-30 w-full -translate-x-1/2 px-4">
+        <div className="pointer-events-auto mx-auto flex max-w-[1170px] h-[48px] md:h-[80px] items-center justify-between bg-black/40 px-4 md:px-10 py-4 text-white shadow-[0_20px_60px_rgba(19,18,16,0.35)] backdrop-blur-[20px]">
+          <Link href="/" className="flex items-center gap-1 ">
+          <div className="w-[32px] h-[32px] md:w-[45px] md:h-[45px]">
+
+       
+            <Image src="/logo_123.svg" alt="Anvie Home" width={45} height={45} />   </div>
             <div className="mt-2">
-              <p className="text-[14px] font-normal uppercase">Anvie Home</p>
-              <p className="text-[8px] font-normal">Architecture & Interior</p>
+              <p className="text-[10px] md:text-[14px] font-normal uppercase">Anvie Home</p>
+              <p className="text-[6px] md:text-[8px] font-normal">Architecture & Interior</p>
             </div>
           </Link>
 
@@ -120,7 +123,7 @@ export function SiteHeader() {
             aria-label="Toggle menu"
           >
             <svg
-              className="w-6 h-6"
+              className="md:w-6 md:h-6 w-5 h-5"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
