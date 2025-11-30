@@ -26,7 +26,7 @@ export function ServicesSection() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(0);
 
   return (
-    <section className="space-y-6 xl:w-[1170px] mx-auto">
+    <section className="space-y-6 xl:w-[1170px] mx-auto  px-4 md:px-0">
       <div className="space-y-6 w-full">
         <h2 className="font-sans text-[32px] font-bold text-black">Dịch Vụ Của Chúng Tôi</h2>
         <p className="text-base text-secondary mt-2 font-normal max-w-3xl">

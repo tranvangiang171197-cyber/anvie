@@ -153,11 +153,11 @@ export default async function HomePage() {
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${hero.image1})` }}
         />
-        <div className="relative z-10 flex min-h-[720px] flex-col items-center justify-center gap-6 text-center px-6 py-20">
-          <h1 className="font-bold text-4xl leading-tight md:text-[56px] ">
+        <div className="relative z-10 flex min-h-[400px] md:min-h-[720px] flex-col items-center justify-center gap-4 md:gap-6 text-center px-6 py-12 md:py-20">
+          <h1 className="font-bold text-2xl md:text-4xl leading-tight lg:text-[56px]">
             {hero.title1} <br />   {hero.title2} <br />
           </h1>
-          <p className="max-w-3xl text-base text-white md:text-xl font-normal">
+          <p className="max-w-3xl text-sm md:text-base text-white lg:text-xl font-normal px-4">
             {hero.subtitle}
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
@@ -172,7 +172,7 @@ export default async function HomePage() {
 
       <ServicesSection />
 
-      <section className="relative overflow-hidden min-h-[768px]  text-white">
+      <section className="relative overflow-hidden min-h-[600px] md:min-h-[768px] text-white">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
@@ -182,30 +182,28 @@ export default async function HomePage() {
               backgroundRepeat: 'no-repeat',
           }}
         />
-        <div className="relative z-10 px-6 py-14 text-center">
-          <p className="text-[18px] text-center font-normal text-white">
+        <div className="relative z-10 px-6 py-8 md:py-14 text-center">
+          <p className="text-base md:text-[18px] text-center font-normal text-white">
           Vì sao chọn Anvie Home cho thiết kế & thi công nội thất?
           </p>
-          <h3 className="mt-3 text-center text-[32px] font-semibold text-white">
-          5 tiêu chí S.P.A.C.E (không gian sống) là kim chỉ nam để <br />
+          <h3 className="mt-3 text-center text-xl md:text-2xl lg:text-[32px] font-semibold text-white px-4">
+          5 tiêu chí S.P.A.C.E (không gian sống) là kim chỉ nam để <br className="hidden md:block" />
           Anvie kiến tạo không gian sống an yên
           </h3>
-          <div className="mt-10 grid gap-6 md:grid-cols-5">
+          <div className="mt-6 md:mt-10 grid gap-4 md:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-5">
             {spaceCriteria.map((item) => (
               <div
                 key={item.key}
-                className=" bg-black/32 p-5 text-left backdrop-blur flex flex-col justify-between min-h-[433px]"
+                className="bg-black/32 p-4 md:p-5 text-left backdrop-blur flex flex-col justify-between min-h-[300px] md:min-h-[433px]"
               >
                 <div>
-                <p className="text-[64px] font-semibold text-[#B38147]">{item.key}</p>
-                <p className="mt-1 text-[24px] font-medium text-[#B38147] uppercase">{item.title}</p>
+                <p className="text-4xl md:text-[64px] font-semibold text-[#B38147]">{item.key}</p>
+                <p className="mt-1 text-lg md:text-[24px] font-medium text-[#B38147] uppercase">{item.title}</p>
                 </div>
               
                 <div>
-
-
-                <p className="mt-2 text-[18px] text-white font-bold">{item.description_title}</p>
-                <p className="mt-2 text-base text-white font-normal">{item.description}</p>
+                <p className="mt-2 text-base md:text-[18px] text-white font-bold">{item.description_title}</p>
+                <p className="mt-2 text-sm md:text-base text-white font-normal">{item.description}</p>
                 </div>
               </div>
             ))}
@@ -213,19 +211,19 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section className="w-[1170px] mx-auto">
+      <section className="max-w-[1170px] mx-auto py-8 md:py-12 w-full  px-4 md:px-0">
         <div className="space-y-3">
-          <h3 className="font-sans text-[32px] font-semibold text-black">
-            Nếu có số tiết kiệm 100 triệu, <br /> bạn có thể làm gì với không gian sống của
+          <h3 className="font-sans text-xl md:text-2xl lg:text-[32px] font-semibold text-black">
+            Nếu có số tiết kiệm 100 triệu, <br className="hidden md:block" /> bạn có thể làm gì với không gian sống của
             mình?
           </h3>
-          <p className="text-[18px] text-[#515151] font-normal max-w-[520px]">
+          <p className="text-base md:text-[18px] text-[#515151] font-normal max-w-[520px]">
             Bạn sẽ bất ngờ với những gì Anvie Home có thể làm được. Chúng tôi sẽ giúp
             biến khoản tiết kiệm đó thành giải pháp thiết kế và thi công phù hợp riêng
             cho bạn.
           </p>
         </div>
-        <div className="grid gap-6 md:grid-cols-2 mt-6">
+        <div className="grid gap-4 md:gap-6 md:grid-cols-2 mt-6">
           {scenarioCards.map((card) => (
             <div
               key={card.title_1}
@@ -235,9 +233,9 @@ export default async function HomePage() {
                 className="min-h-[400px] bg-cover bg-center flex flex-col justify-between"
                 style={{ backgroundImage: `url(${card.image})` }}
               ><div></div>
-              <div className="flex flex-col gap-3 px-6 py-6 md:flex-row md:items-center md:justify-between h-[106px ] bg-black/32 backdrop-blur">
+              <div className="flex flex-row gap-3 px-4 md:px-6 py-4 md:py-6 items-center justify-between min-h-[106px] bg-black/32 backdrop-blur">
                 <div className="">
-                  <h4 className="text-[24px] font-semibold text-white">
+                  <h4 className="text-base md:text-[24px] font-semibold text-white">
                     {card.title_1}  <br /> {card.title_2}
                   </h4>
                   
@@ -251,7 +249,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden  text-white min-h-[600px] flex items-center justify-center"
+      <section className="relative overflow-hidden text-white min-h-[400px] md:min-h-[600px] flex items-center justify-center"
        style={{
         backgroundImage:
           `url('/home/da_hoan_thien.png')`,
@@ -261,11 +259,11 @@ export default async function HomePage() {
       }}
       >
        
-        <div className="relative  flex flex-col items-center gap-4 px-6 py-20 text-center">
-          <h3 className="font-sans text-[32px] font-semibold text-white">
+        <div className="relative flex flex-col items-center gap-3 md:gap-4 px-6 py-12 md:py-20 text-center">
+          <h3 className="font-sans text-xl md:text-2xl lg:text-[32px] font-semibold text-white px-4">
           Những Không Gian Anvie Đã Hoàn Thiện
           </h3>
-          <p className="max-w-[650px] text-[20px] text-white font-[300]">
+          <p className="max-w-[650px] text-base md:text-lg lg:text-[20px] text-white font-[300] px-4">
           Chúng tôi kiến tạo những tổ ấm hài hòa giữa thẩm mỹ, công năng và
           sự bình yên, để mỗi ngôi nhà trở thành nơi bạn thật sự muốn trở về
           </p>
@@ -273,15 +271,15 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section className="bg-[#f7f4f1] px-6 py-12 min-h-[700px] flex items-center justify-center flex-col">
-        <div className="w-[1170px] text-left">
-        <h3 className="text-left font-sans text-[32px] font-semibold text-black ">
+      <section className="bg-[#f7f4f1] px-6 py-8 md:py-12 min-h-[500px] md:min-h-[700px] flex items-center justify-center flex-col">
+        <div className="max-w-[1170px] w-full text-left">
+        <h3 className="text-left font-sans text-xl md:text-2xl lg:text-[32px] font-semibold text-black">
           Trăm Lời Quảng Cáo Không Bằng Một Feedback
         </h3>
-        <p className="mt-2 text-left text-[18px] text-[#515151] font-normal">
+        <p className="mt-2 text-left text-base md:text-[18px] text-[#515151] font-normal">
           Khách hàng nói gì về dịch vụ thiết kế nội thất & kiến trúc tại Anvie Home?
         </p>  </div>
-        <div className="mt-8 grid gap-6 md:grid-cols-3 max-w-[1170px] mx-auto">
+        <div className="mt-6 md:mt-8 grid gap-4 md:gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-[1170px] mx-auto w-full">
           {testimonials.map((testimonial) => (
             <div
               key={testimonial.name}
@@ -315,12 +313,12 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section className="space-y-6 w-[1170px] mx-auto">
-        <h3 className="font-sans text-[32px] font-semibold text-black text-left">
-        Những Cột Mốc <br />
+      <section className="space-y-4 md:space-y-6 max-w-[1170px] mx-auto  py-8 md:py-12 w-full">
+        <h3 className="font-sans text-xl md:text-2xl lg:text-[32px] font-semibold text-black text-left">
+        Những Cột Mốc <br className="hidden md:block" />
         Đáng "Khoe" Của Anvie
         </h3>
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="grid gap-4 md:gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {milestones.map((milestone) => (
             <div
               key={milestone.label}
@@ -328,17 +326,17 @@ export default async function HomePage() {
               style={{ backgroundImage: `url(${milestone.image})` }}
             >
              
-              <div className="flex flex-col justify-between p-6 text-white w-full h-full">
+              <div className="flex flex-col justify-between p-4 md:p-6 text-white w-full h-full">
                 <div>
-                <p className="text-[64px] font-bold">
+                <p className="text-4xl md:text-5xl lg:text-[64px] font-bold">
                   {milestone.value}
                 </p>
-                <span className="ml-1 text-[32px] font-semibold">{milestone.label}</span>
+                <span className="ml-1 text-xl md:text-2xl lg:text-[32px] font-semibold">{milestone.label}</span>
 
                 </div>
                
                 <div>
-                <p className="text-base text-white">{milestone.description}</p>
+                <p className="text-sm md:text-base text-white">{milestone.description}</p>
 
                 </div>
               </div>
@@ -347,7 +345,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden min-h-[720px] text-white flex items-center justify-center flex-col"
+      <section className="relative overflow-hidden min-h-[500px] md:min-h-[720px] text-white flex items-center justify-center flex-col px-6 py-8 md:py-12"
         style={{
           backgroundImage:
             "url('/home/quy_tac.png')",
@@ -357,24 +355,24 @@ export default async function HomePage() {
         }}
       >
       
-         <h3 className="font-sans text-[32px] font-semibold text-white text-center">
+         <h3 className="font-sans text-xl md:text-2xl lg:text-[32px] font-semibold text-white text-center">
          Quy Tắc 3 Không
         </h3>
-        <div className="mt-10 grid gap-6 md:grid-cols-3 max-w-[1170px] mx-auto">
+        <div className="mt-6 md:mt-10 grid gap-4 md:gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-[1170px] mx-auto w-full">
             {rules.map((item) => (
               <div
                 key={item.title}
-                className=" bg-black/60 p-6 text-left  flex flex-col justify-between min-h-[433px]"
+                className="bg-black/60 p-4 md:p-6 text-left flex flex-col justify-between min-h-[300px] md:min-h-[433px]"
               >
                 <div>
-                <p className=" font-semibold text-[#B38147]">
-                  <Image src={item.image} alt={item.title} width={60} height={60} />
+                <p className="font-semibold text-[#B38147]">
+                  <Image src={item.image} alt={item.title} width={50} height={50} className="md:w-[60px] md:h-[60px]" />
                 </p>
                 </div>
               
                 <div>
-                <p className="mt-2 text-[32px] text-white font-bold">{item.title}</p>
-                <p className="mt-2 text-base text-white font-normal">{item.description}</p>
+                <p className="mt-2 text-xl md:text-2xl lg:text-[32px] text-white font-bold">{item.title}</p>
+                <p className="mt-2 text-sm md:text-base text-white font-normal">{item.description}</p>
                 </div>
               </div>
             ))}

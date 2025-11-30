@@ -2,14 +2,14 @@
 
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import Image from "next/image";
 import { navLinks } from "@/lib/navigation";
 
 const subMenuItems = [
   { label: "Về Anvie", href: "/an-vi-an-yen" },
-  { label: "Quy Trình", href: "#thiet-ke-noi-that" },
-  { label: "Xưởng sản xuất", href: "#xuong-san-xuat" },
+  { label: "Quy Trình", href: "/#" },
+  { label: "Xưởng sản xuất", href: "/" },
 ];
 
 export function SiteHeader() {
@@ -17,6 +17,12 @@ export function SiteHeader() {
   const [isSubMenuOpen, setIsSubMenuOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
+  const router = useRouter();
+
+  // Debug: log when isMenuOpen changes
+  useEffect(() => {
+    console.log('isMenuOpen changed to:', isMenuOpen);
+  }, [isMenuOpen]);
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -40,7 +46,7 @@ export function SiteHeader() {
 
   return (
     <>
-      <header className="pointer-events-none absolute left-1/2 top-6 z-30 w-full -translate-x-1/2 px-4">
+      <header className="pointer-events-none fixed left-1/2 top-6 z-30 w-full -translate-x-1/2 px-4">
         <div className="pointer-events-auto mx-auto flex max-w-[1170px] h-[80px] items-center justify-between bg-black/40 px-10 py-4 text-white shadow-[0_20px_60px_rgba(19,18,16,0.35)] backdrop-blur-[20px]">
           <Link href="/" className="flex items-center gap-1">
             <Image src="/logo_123.svg" alt="Anvie Home" width={45} height={45} />
@@ -106,7 +112,10 @@ export function SiteHeader() {
 
           {/* Mobile Hamburger Button */}
           <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            onClick={() => {
+              console.log('Hamburger clicked, current state:', isMenuOpen);
+              setIsMenuOpen(!isMenuOpen);
+            }}
             className="lg:hidden text-white"
             aria-label="Toggle menu"
           >
@@ -136,14 +145,24 @@ export function SiteHeader() {
         </div>
       </header>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Menu Overlay - Render outside header to avoid stacking context issues */}
       {isMenuOpen && (
-        <div className="fixed inset-0 z-40 lg:hidden">
+        <>
           <div
-            className="absolute inset-0 bg-black/50"
+            className="fixed inset-0 bg-black/50 lg:hidden"
+            style={{ position: 'fixed', zIndex: 99998 }}
             onClick={() => setIsMenuOpen(false)}
           />
-          <div className="absolute right-0 top-0 h-full w-[274px] bg-white shadow-xl">
+          <div 
+            className="fixed right-0 top-0 h-full w-[274px] bg-white shadow-xl lg:hidden"
+            style={{ 
+              position: 'fixed', 
+              zIndex: 99999,
+              pointerEvents: 'auto',
+              display: 'block',
+              visibility: 'visible'
+            }}
+          >
             <div className="flex flex-col h-full">
               {/* Menu Header */}
               <div className="flex items-center justify-between p-6 ">
@@ -208,23 +227,26 @@ export function SiteHeader() {
                             </svg>
                           </button>
                           {isSubMenuOpen && (
-                            <div className=" mt-1 space-y-1">
+                            <div className="mt-1 space-y-1 ">
                               {subMenuItems.map((item) => (
-                                <Link
+                                <button
                                   key={item.href}
-                                  href={item.href}
-                                  onClick={() => {
+                                  type="button"
+                                  onMouseDown={(e) => {
+                                    e.preventDefault();
+                                    e.stopPropagation();
                                     setIsMenuOpen(false);
                                     setIsSubMenuOpen(false);
+                                    window.location.href = item.href;
                                   }}
-                                  className={`block px-4 py-2 transition  ${
+                                  className={`w-full text-center block px-4 py-2 transition cursor-pointer ${
                                     pathname === item.href
                                       ? "bg-[#B38147] text-white"
                                       : "text-gray-700 hover:bg-[#B38147] hover:text-white"
                                   }`}
                                 >
                                   {item.label}
-                                </Link>
+                                </button>
                               ))}
                             </div>
                           )}
@@ -248,7 +270,7 @@ export function SiteHeader() {
               </nav>
             </div>
           </div>
-        </div>
+        </>
       )}
     </>
   );

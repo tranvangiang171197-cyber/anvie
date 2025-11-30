@@ -81,31 +81,31 @@ export default async function AnViAnYenPage() {
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${hero.image})` }}
         />
-        <div className="relative z-10 flex min-h-[460px] flex-col items-center justify-center gap-6 text-center px-6 py-20">
-          <h1 className="font-bold text-4xl leading-tight md:text-[56px]">
+        <div className="relative z-10 flex min-h-[300px] md:min-h-[460px] flex-col items-center justify-center gap-4 md:gap-6 text-center px-6 py-12 md:py-20">
+          <h1 className="font-bold text-2xl md:text-4xl leading-tight lg:text-[56px] px-4">
             {hero.title}
           </h1>
-          <p className="max-w-3xl text-lg text-white md:text-[20px] font-normal italic">
+          <p className="max-w-3xl text-sm md:text-base text-white lg:text-[20px] font-normal italic px-4">
             "{hero.quote}" - {hero.author}
           </p>
         </div>
       </section>
 
       {/* Anvie Home giúp bạn nuôi dưỡng bình an */}
-      <section className="max-w-[1170px] mx-auto  py-10">
-        <div className="grid gap-12 md:grid-cols-2 items-start">
-          <div className="flex items-start gap-6 justify-start flex-col">
-            <h2 className="font-sans text-[32px] font-semibold text-black">
-              Anvie Home giúp bạn <br /> nuôi dưỡng bình an
+      <section className="max-w-[1170px] mx-auto px-6 py-8 md:py-10">
+        <div className="grid gap-8 md:gap-12 md:grid-cols-2 items-start">
+          <div className="flex items-start gap-4 md:gap-6 justify-start flex-col">
+            <h2 className="font-sans text-xl md:text-2xl lg:text-[32px] font-semibold text-black">
+              Anvie Home giúp bạn <br className="hidden md:block" /> nuôi dưỡng bình an
             </h2>
-            <div className="space-y-2 text-base text-[#515151] leading-normal">
+            <div className="space-y-2 text-sm md:text-base text-[#515151] leading-normal">
               <p>
               Anvie ra đời với mong muốn mang đến cho khách hàng những giải pháp thiết kế nội thất và thi công nội thất trọn gói, kết hợp giữa thẩm mỹ tinh tế, công năng tiện nghi và sự bền vững lâu dài.              </p>
               <p>
               Chúng tôi tin rằng mỗi ngôi nhà không chỉ là nơi ở, mà còn là không gian sống - nơi bạn được nghỉ ngơi, cân bằng và tìm lại năng lượng sau những bộn bề công việc. Chính vì vậy, mọi dự án của Anvie đều được thực hiện với tinh thần: thiết kế vì con người, thi công vì sự an yên trong từng không gian.              </p>
             </div>
           </div>
-          <div className="relative h-[380px]  overflow-hidden">
+          <div className="relative h-[250px] md:h-[380px] overflow-hidden rounded-lg">
             <Image
               src="/anvi/about.png"
               alt="Anvie Home"
@@ -117,62 +117,62 @@ export default async function AnViAnYenPage() {
       </section>
 
       {/* Thông điệp thương hiệu */}
-      <section className="relative overflow-hidden min-h-[854px] text-white flex flex-col items-center justify-center">
+      <section className="relative overflow-hidden min-h-[600px] md:min-h-[854px] text-white flex flex-col items-center justify-center px-6 py-8 md:py-16" style={{ zIndex: 1 }}>
       <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url('/anvi/brand.png')` }}
         />
-        <div className="relative z-10 max-w-[1170px]  py-16  w-full h-full">
-          <div className="text-center mb-12">
-            <h2 className="text-[32px]  font-semibold mb-2">
+        <div className="relative z-10 max-w-[1170px] w-full h-full">
+          <div className="text-center mb-8 md:mb-12">
+            <h2 className="text-xl md:text-2xl lg:text-[32px] font-semibold mb-2">
               Thông điệp thương hiệu
             </h2>
-            <p className="text-base text-white leading-normal text-[24px] font-normal">Tại Anvie, chúng tôi tin vào 3 điều:</p>
+            <p className="text-base md:text-lg lg:text-[24px] text-white leading-normal font-normal">Tại Anvie, chúng tôi tin vào 3 điều:</p>
           </div>
-          <div className="grid gap-8 md:grid-cols-3">
+          <div className="grid gap-4 md:gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {brandMessages.map((message, index) => (
-              <div key={index} className="text-left space-y-4 min-h-[370px] flex flex-col items-center justify-between bg-black/24 backdrop-blur-[6px] p-4">
-                <h3 className="text-[36px] w-full text-left font-semibold text-[#E6BC8B]">
+              <div key={index} className="text-left space-y-4 min-h-[300px] md:min-h-[370px] flex flex-col items-center justify-between bg-black/24 backdrop-blur-[6px] p-4">
+                <h3 className="text-2xl md:text-3xl lg:text-[36px] w-full text-left font-semibold text-[#E6BC8B]">
                   {message.title} <br />
                   {message.title_2} <br />
                   {message.title_3} 
                 </h3>
-                <p className="text-base text-white leading-relaxed">
+                <p className="text-sm md:text-base text-white leading-relaxed">
                   {message.description}
                 </p>
               </div>
             ))}
           </div>
-          <p className="text-center mt-12 text-[24px] text-white leading-normal font-normal">
-            Ngôi nhà không chỉ đẹp trên bản vẽ, <br /> Anvie biến nó thành tổ ấm trọn vẹn để bạn thật sự tận hưởng từng khoảnh khắc
+          <p className="text-center mt-8 md:mt-12 text-base md:text-lg lg:text-[24px] text-white leading-normal font-normal px-4">
+            Ngôi nhà không chỉ đẹp trên bản vẽ, <br className="hidden md:block" /> Anvie biến nó thành tổ ấm trọn vẹn để bạn thật sự tận hưởng từng khoảnh khắc
           </p>
         </div>
       </section>
 
       {/* Sứ mệnh & Tầm nhìn */}
-      <section className="w-[1170px] mx-auto">
+      <section className="max-w-[1170px] mx-auto  py-8 md:py-12 w-full">
         <div className="space-y-3">
-          <h3 className="font-sans text-[32px] font-semibold text-black">
+          <h3 className="font-sans text-xl md:text-2xl lg:text-[32px] font-semibold text-black">
           Sứ mệnh & Tầm nhìn
           </h3>
       
         </div>
-        <div className="grid gap-6 md:grid-cols-2 my-6">
+        <div className="grid gap-4 md:gap-6 grid-cols-1 md:grid-cols-2 my-6">
           {scenarioCards.map((card) => (
             <div
               key={card.title_1}
-              className="overflow-hidden  "
+              className="overflow-hidden rounded-lg"
             >
               <div
-                className="min-h-[400px] bg-cover bg-center flex flex-col justify-between"
+                className="min-h-[300px] md:min-h-[400px] bg-cover bg-center flex flex-col justify-between"
                 style={{ backgroundImage: `url(${card.image})` }}
               ><div></div>
-              <div className="flex flex-col gap-3 px-6 py-6 md:flex-row md:items-center md:justify-between h-[106px ] bg-black/30 backdrop-blur">
+              <div className="flex flex-col gap-3 px-4 md:px-6 py-4 md:py-6 md:flex-row md:items-center md:justify-between min-h-[106px] bg-black/30 backdrop-blur">
                 <div className="">
-                  <h4 className="text-[24px] font-semibold text-white">
+                  <h4 className="text-lg md:text-xl lg:text-[24px] font-semibold text-white">
                     {card.title_1}  
                   </h4>
-                  <p className="text-base text-white leading-normal">
+                  <p className="text-sm md:text-base text-white leading-normal">
                   {card.desc}  
 
                   </p>
@@ -186,16 +186,16 @@ export default async function AnViAnYenPage() {
       </section>
 
       {/* Trong 5 năm tới */}
-      <section className="bg-[#F4F4F4] px-6 py-20">
+      <section className="bg-[#F4F4F4] px-6 py-12 md:py-20">
         <div className="max-w-[1170px] mx-auto">
-          <h2 className="text-[32px] font-semibold text-black text-center mb-6">
+          <h2 className="text-xl md:text-2xl lg:text-[32px] font-semibold text-black text-center mb-6 px-4">
             Trong 5 năm tới, Anvie mong muốn
           </h2>
-          <div className="grid gap-6 md:grid-cols-3">
+          <div className="grid gap-4 md:gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {futureGoals.map((goal, index) => (
               <div
                 key={index}
-                className="bg-white rounded-[24px] p-6 border border-[#B38147] shadow-sm"
+                className="bg-white rounded-[24px] p-4 md:p-6 border border-[#B38147] shadow-sm"
               >
                 <div className="mb-4">
                   <Image
@@ -206,7 +206,7 @@ export default async function AnViAnYenPage() {
                     className="object-contain"
                   />
                 </div>
-                <p className="text-base text-black leading-relaxed">
+                <p className="text-sm md:text-base text-black leading-relaxed">
                   {goal.description}
                 </p>
               </div>
