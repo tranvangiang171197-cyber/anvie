@@ -13,12 +13,12 @@ const services = [
   {
     title: "Thiết kế nội thất",
     description: "Ngôn ngữ nội thất đậm chất Anvie, phù hợp từng gia chủ.",
-    image: "/home/service_1.png",
+    image: "/home/house_1.png",
   },
   {
     title: "Thi công nội thất trọn gói",
     description: "Đồng hành từ xưởng tới bàn giao chìa khóa.",
-    image: "/home/service_1.png",
+    image: "/home/house_2.jpg",
   },
 ];
 
@@ -93,8 +93,9 @@ export function ServicesSection() {
                   style={{ backgroundImage: `url(${service.image})` }}
                 />
                 <div className="absolute inset-x-0 bottom-0 px-6 pb-8 text-white">
-                  <div className="flex items-end justify-between gap-4 flex-row">
-                    <div className="space-y-2 flex-1 text-left">
+                  <div className="flex items-start justify-between gap-4 flex-row w-full">
+                    <div className="space-y-2 flex items-center justify-center text-left w-full gap-4">
+                      <div className="w-full">
                       <h3 className="text-[24px] font-bold leading-tight">{service.title}</h3>
                       <p
                         className={`text-base font-normal text-white transition-opacity duration-300 ${
@@ -103,9 +104,9 @@ export function ServicesSection() {
                       >
                         {service.description}
                       </p>
-                   
+                      </div>
                     <div
-                      className={` w-10 h-10 rounded-full bg-transparent  flex items-center justify-center border border-white transition-opacity duration-300 ${
+                      className={` min-w-10 min-h-10 cursor-pointer rounded-full bg-transparent hover:bg-primary flex items-center justify-center border border-white transition-opacity duration-300 ${
                          shouldShowContent ? "display" : "hidden"
                       }`}
                     >

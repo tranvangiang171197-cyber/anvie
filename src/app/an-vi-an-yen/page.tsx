@@ -143,7 +143,7 @@ export default async function AnViAnYenPage() {
           <div className="grid gap-4 md:gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {brandMessages.map((message, index) => (
               <AnimateOnScroll key={index} animation="fadeInUp" delay={index * 0.15} duration={0.7}>
-                <div className="text-left space-y-4 min-h-[210px] md:min-h-[370px] flex flex-col items-center justify-between bg-black/24 backdrop-blur-[6px] p-4">
+                <div className="text-left space-y-4 min-h-[210px] md:min-h-[370px] flex flex-col items-center justify-between bg-black/24 backdrop-blur-[8px] p-4">
                   <h3 className="text-[20px] mdtext-[36px] w-full text-left font-semibold text-[#E6BC8B]">
                     {message.title} <br />
                     {message.title_2} <br />
