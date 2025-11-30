@@ -82,30 +82,30 @@ export default async function AnViAnYenPage() {
           style={{ backgroundImage: `url(${hero.image})` }}
         />
         <div className="relative z-10 flex min-h-[300px] md:min-h-[460px] flex-col items-center justify-center gap-4 md:gap-6 text-center px-6 py-12 md:py-20">
-          <h1 className="font-bold text-2xl md:text-4xl leading-tight lg:text-[56px] px-4">
+          <h1 className="font-bold text-[32px] leading-tight md:text-[56px] px-4 mt-8 md:mt-0">
             {hero.title}
           </h1>
-          <p className="max-w-3xl text-sm md:text-base text-white lg:text-[20px] font-normal italic px-4">
+          <p className="max-w-3xl text-base text-white md:text-[20px] font-normal italic px-4">
             "{hero.quote}" - {hero.author}
           </p>
         </div>
       </section>
 
       {/* Anvie Home giúp bạn nuôi dưỡng bình an */}
-      <section className="max-w-[1170px] mx-auto px-6 py-8 md:py-10">
+      <section className="max-w-[1170px] mx-auto px-6 py-8 md:py-16">
         <div className="grid gap-8 md:gap-12 md:grid-cols-2 items-start">
           <div className="flex items-start gap-4 md:gap-6 justify-start flex-col">
-            <h2 className="font-sans text-xl md:text-2xl lg:text-[32px] font-semibold text-black">
+            <h2 className="font-sans text-[24px] md:text-[32px] font-semibold text-black">
               Anvie Home giúp bạn <br className="hidden md:block" /> nuôi dưỡng bình an
             </h2>
-            <div className="space-y-2 text-sm md:text-base text-[#515151] leading-normal">
+            <div className="space-y-2 text-base text-[#515151] leading-normal">
               <p>
               Anvie ra đời với mong muốn mang đến cho khách hàng những giải pháp thiết kế nội thất và thi công nội thất trọn gói, kết hợp giữa thẩm mỹ tinh tế, công năng tiện nghi và sự bền vững lâu dài.              </p>
               <p>
               Chúng tôi tin rằng mỗi ngôi nhà không chỉ là nơi ở, mà còn là không gian sống - nơi bạn được nghỉ ngơi, cân bằng và tìm lại năng lượng sau những bộn bề công việc. Chính vì vậy, mọi dự án của Anvie đều được thực hiện với tinh thần: thiết kế vì con người, thi công vì sự an yên trong từng không gian.              </p>
             </div>
           </div>
-          <div className="relative h-[250px] md:h-[380px] overflow-hidden rounded-lg">
+          <div className="relative h-[250px] md:h-[380px] overflow-hidden">
             <Image
               src="/anvi/about.png"
               alt="Anvie Home"
@@ -124,35 +124,35 @@ export default async function AnViAnYenPage() {
         />
         <div className="relative z-10 max-w-[1170px] w-full h-full">
           <div className="text-center mb-8 md:mb-12">
-            <h2 className="text-xl md:text-2xl lg:text-[32px] font-semibold mb-2">
+            <h2 className="text-[24px] md:text-[32px] font-semibold mb-2">
               Thông điệp thương hiệu
             </h2>
-            <p className="text-base md:text-lg lg:text-[24px] text-white leading-normal font-normal">Tại Anvie, chúng tôi tin vào 3 điều:</p>
+            <p className="text-base mdtext-[24px] text-white leading-normal font-normal">Tại Anvie, chúng tôi tin vào 3 điều:</p>
           </div>
           <div className="grid gap-4 md:gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {brandMessages.map((message, index) => (
-              <div key={index} className="text-left space-y-4 min-h-[300px] md:min-h-[370px] flex flex-col items-center justify-between bg-black/24 backdrop-blur-[6px] p-4">
-                <h3 className="text-2xl md:text-3xl lg:text-[36px] w-full text-left font-semibold text-[#E6BC8B]">
+              <div key={index} className="text-left space-y-4 min-h-[210px] md:min-h-[370px] flex flex-col items-center justify-between bg-black/24 backdrop-blur-[6px] p-4">
+                <h3 className="text-[20px] mdtext-[36px] w-full text-left font-semibold text-[#E6BC8B]">
                   {message.title} <br />
                   {message.title_2} <br />
                   {message.title_3} 
                 </h3>
-                <p className="text-sm md:text-base text-white leading-relaxed">
+                <p className="text-base text-white leading-relaxed">
                   {message.description}
                 </p>
               </div>
             ))}
           </div>
-          <p className="text-center mt-8 md:mt-12 text-base md:text-lg lg:text-[24px] text-white leading-normal font-normal px-4">
+          <p className="text-center mt-8 md:mt-12 text-base md:text-[24px] text-white leading-normal font-normal px-4">
             Ngôi nhà không chỉ đẹp trên bản vẽ, <br className="hidden md:block" /> Anvie biến nó thành tổ ấm trọn vẹn để bạn thật sự tận hưởng từng khoảnh khắc
           </p>
         </div>
       </section>
 
       {/* Sứ mệnh & Tầm nhìn */}
-      <section className="max-w-[1170px] mx-auto  py-8 md:py-12 w-full">
+      <section className="max-w-[1170px] mx-auto  py-8 md:py-12 w-full px-4 md:px-0">
         <div className="space-y-3">
-          <h3 className="font-sans text-xl md:text-2xl lg:text-[32px] font-semibold text-black">
+          <h3 className="text-center md:text-left text-[24px] md:text-[32px] font-semibold text-black">
           Sứ mệnh & Tầm nhìn
           </h3>
       
@@ -161,7 +161,7 @@ export default async function AnViAnYenPage() {
           {scenarioCards.map((card) => (
             <div
               key={card.title_1}
-              className="overflow-hidden rounded-lg"
+              className="overflow-hidden "
             >
               <div
                 className="min-h-[300px] md:min-h-[400px] bg-cover bg-center flex flex-col justify-between"
