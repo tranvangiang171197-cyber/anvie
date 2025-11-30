@@ -3,6 +3,7 @@ import { ButtonLink } from "@/components/button-link";
 import { ArticleCard } from "@/components/content-card";
 import { getCollectionSummaries } from "@/lib/content";
 import { ServicesSection } from "@/components/services-section";
+import { TestimonialsSection } from "@/components/testimonials-section";
 import Image from "next/image";
 const hero = {
   title1: "Sống An Vi ",
@@ -78,26 +79,6 @@ const scenarioCards = [
   },
 ];
 
-const testimonials = [
-  {
-    name: "Anh Hùng",
-    quote:
-      "Diện tích nhà mình không lớn, nhưng nhờ Anvie Home mà mọi thứ bố trí rất hợp lý. Phòng khách, bếp, phòng ngủ đều vừa tiện vừa đẹp. Đội ngũ thi công làm việc cẩn thận, nhanh chóng, không phát sinh gì bất ngờ. Mình đặc biệt ưng phần tủ bếp và kệ tivi, rất tiện sử dụng. Cảm giác sống trong nhà mới thoải mái hơn hẳn.",
-    avatar: "/home/anh_hung.png", // Thay bằng đường dẫn avatar thực tế
-  },
-  {
-    name: "Chị Hoa",
-    quote:
-      "Ban đầu cũng hơi lo nhưng làm xong thấy khá ổn. Nội thất đẹp, tiện dụng, gia đình ai cũng thích. Mình thấy đội ngũ làm việc nhiệt tình và có trách nhiệm.",
-    avatar: "/home/chi_hoa.png", // Thay bằng đường dẫn avatar thực tế
-  },
-  {
-    name: "Anh Long",
-    quote:
-      "Lúc đầu cũng hơi lo vì chưa từng thuê thiết kế trọn gói, nhưng Anvie làm việc chuyên nghiệp đấy. Khi thi công xong thì đúng như cam kết và bản vẽ 3D trước đấy. Các chi tiết nhỏ  chăm chút kỹ, màu sắc hài hòa, ánh sáng tự nhiên vừa đủ. Giá cả không phát sinh lặt vặt. Nhìn tổng thể thì mình cảm thấy rất vừa ý.",
-    avatar: "/home/anh_long.png", // Thay bằng đường dẫn avatar thực tế
-  },
-];
 
 const milestones = [
   {
@@ -276,47 +257,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section className="bg-[#f7f4f1] px-6 py-8 md:py-16 min-h-[500px] md:min-h-[700px] flex items-center justify-center flex-col">
-        <div className="max-w-[1170px] w-full text-left">
-        <h3 className="text-left font-sans text-xl md:text-2xl lg:text-[32px] font-semibold text-black">
-          Trăm Lời Quảng Cáo Không Bằng Một Feedback
-        </h3>
-        <p className="mt-2 text-left text-base md:text-[18px] text-[#515151] font-normal">
-          Khách hàng nói gì về dịch vụ thiết kế nội thất & kiến trúc tại Anvie Home?
-        </p>  </div>
-        <div className="mt-6 md:mt-8 grid gap-4 md:gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-[1170px] mx-auto w-full">
-          {testimonials.map((testimonial) => (
-            <div
-              key={testimonial.name}
-              className="bg-white rounded-[24px] px-6 py-6 shadow-[0_20px_60px_rgba(15,23,42,0.1)] relative"
-            >
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 rounded-full bg-gray-200 overflow-hidden flex-shrink-0">
-                  <img
-                    src={testimonial.avatar}
-                    alt={testimonial.name}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <p className="text-base font-bold text-[#B38147]">
-                  {testimonial.name}
-                </p>
-              </div>
-              <div className="relative">
-                <span className="text-[48px] leading-none text-[#E6BC8B] font-bold absolute -top-2 -left-2">
-                “
-                </span>
-                <p className="text-base text-black font-normal leading-relaxed pt-6 pl-4 py-6">
-                  {testimonial.quote}
-                </p>
-                <span className="text-[48px] leading-none text-[#E6BC8B] font-bold absolute -bottom-6 -right-2">
-                ”
-                </span>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+      <TestimonialsSection />
 
       <section className="space-y-4 md:space-y-6 max-w-[1170px] mx-auto px-4 md:px-0 py-8 md:py-16 w-full">
         <h3 className="font-sans text-xl md:text-2xl lg:text-[32px] font-semibold text-black text-left">

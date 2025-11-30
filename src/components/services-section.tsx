@@ -44,7 +44,7 @@ export function ServicesSection() {
             key={service.title}
             className="relative z-0 flex-shrink-0 w-[280px]"
           >
-            <div className="relative overflow-hidden h-[420px] w-full">
+            <div className="relative overflow-hidden min-h-[420px] w-full">
               <div
                 className="absolute inset-0 bg-cover bg-center"
                 style={{ backgroundImage: `url(${service.image})` }}
@@ -87,7 +87,7 @@ export function ServicesSection() {
                   : "col-span-1"
               } ${shouldShrink ? "scale-95" : "scale-100"} ${isHovered ? "z-10" : ""}`}
             >
-              <div className="relative overflow-hidden h-[420px] w-full">
+              <div className="relative overflow-hidden min-h-[420px] w-full">
                 <div
                   className="absolute inset-0 bg-cover bg-center transition-transform duration-500 hover:scale-105"
                   style={{ backgroundImage: `url(${service.image})` }}
