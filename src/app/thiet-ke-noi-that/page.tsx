@@ -50,6 +50,12 @@ const processSteps = [
     title: "Lên bản vẽ kiến trúc sơ bộ",
     description:
       "Đội ngũ thiết kế phát triển phương án sơ bộ: bố trí công năng, khối tích công trình, sơ đồ cảnh quan cơ bản, ghi chú vật liệu chính. Mục tiêu là hình dung tổng thể và đảm bảo phù hợp công năng.",
+    details: [
+      "Dự án quy mô lớn: Kiến trúc sư tạo mặt bằng 2D bố trí nội thất từng tầng.",
+      "Thiết kế quy mô nhỏ (1-3 phòng): Phát triển mặt bằng 2D bố trí nội thất từng phòng.",
+      "Dự án cải tạo: Kiến trúc sư dựa trên đo đạc thực tế để bố trí nội thất phù hợp từng tầng, từng phòng.",
+      "Công trình mới chưa có mặt bằng: Kiến trúc sư nhận phác thảo sơ bộ từ chủ đầu tư hoặc tham khảo hồ sơ thiết kế ngoại thất để điều chỉnh và phát triển mặt bằng nội thất.",
+    ],
     output: "Đầu ra: bản vẽ sơ bộ (mặt bằng, một vài phối cảnh/3D minh họa, ý tưởng vật liệu).",
     image: "/design/step_5.png",
     imagePosition: "right",
@@ -128,18 +134,25 @@ const processSteps = [
   },
 ];
 
-const ctaCards = [
+const scenarioCards = [
   {
-    title: "Hẹn làm nhà ngay hôm nay",
+    title_1: "Hẹn làm nhà ngay",
+    title_2: " hôm nay",
+    
     button: "Đặt Lịch Tư Vấn",
-    image: "/design/cta_1.png",
+    image:
+      "/design/cta_1.png",
   },
   {
-    title: "Báo giá chi tiết cân đối ngân sách của bạn",
+    title_1: "Báo giá chi tiết cân đối",
+    title_2: "  ngân sách của bạn",
+   
     button: "Nhận Báo Giá Chi Tiết",
-    image: "/design/cta_2.png",
+    image:
+    "/design/cta_2.png",
   },
 ];
+
 
 export default function InteriorPage() {
   return (
@@ -150,7 +163,7 @@ export default function InteriorPage() {
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url('/design/process_hero.png')` }}
         />
-        <div className="absolute inset-0 bg-black/60" />
+        <div className="absolute inset-0 bg-black/20" />
         <div className="relative z-10 flex min-h-[460px] flex-col items-center justify-center gap-6 text-center px-6 py-20">
           <h1 className="font-bold text-4xl leading-tight md:text-[56px]">
             Quy Trình Thiết Kế Kiến Trúc Tại
@@ -161,23 +174,33 @@ export default function InteriorPage() {
       </section>
 
       {/* Introduction Section */}
-      <section className="max-w-[1170px] mx-auto px-6 py-16">
-        <div className="text-center mb-12">
-          <h2 className="font-sans text-[32px] md:text-[40px] font-semibold text-black mb-4">
+      <section className="max-w-[1170px] mx-auto  py-4">
+     
+        <div className="text-start mb-12">
+          <h2 className="font-sans text-[32px] font-semibold text-black mb-4">
             Quy Trình Gồm 13 Bước Đơn Giản, Rõ Ràng
           </h2>
-          <p className="text-base text-secondary max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base text-secondary max-w-3xl font-normal leading-normal ">
             Tại Anvie Home, quy trình thiết kế được tổ chức chặt chẽ, minh bạch và tối ưu. Mỗi bước đều có đầu ra rõ ràng và có sự tương tác giữa chủ nhà và đội ngũ thiết kế, đảm bảo sản phẩm cuối cùng phản ánh đúng nhu cầu, phong cách và ngân sách của bạn.
           </p>
         </div>
+       <div>
+       < Image
+        src="/design/process.svg"
+        alt="Quy trình thiết kế"
+        width={1170}
+        height={648}
+        className="w-full h-full object-cover"
+       />
+       </div>
       </section>
 
       {/* Process Steps */}
-      <section className="max-w-[1170px] mx-auto  py-8">
+      <section className="max-w-[1170px] mx-auto  py-4">
         {processSteps.map((step, index) => (
           <div
             key={step.step}
-            className={`grid gap-8 md:grid-cols-2 items-center mb-16 ${
+            className={`grid gap-8 md:grid-cols-2 items-start mb-16 last:mb-0 ${
               step.imagePosition === "left" ? "md:grid-flow-dense" : ""
             }`}
           >
@@ -196,14 +219,21 @@ export default function InteriorPage() {
               <p className="text-base text-secondary ">
                 {step.description}
               </p>
-              <p className="text-base text-secondary ">
+              {step.details && (
+                <ul className="list-disc list-inside space-y-2 text-base text-secondary mt-4">
+                  {step.details.map((detail, idx) => (
+                    <li key={idx}>{detail}</li>
+                  ))}
+                </ul>
+              )}
+              <p className="text-base text-secondary mt-4">
                 {step.output}
               </p>
             </div>
 
             {/* Image */}
             <div
-              className={`relative h-[280px]  overflow-hidden ${
+              className={`relative h-[280px] overflow-hidden ${
                 step.imagePosition === "left" ? "md:col-start-1 md:row-start-1" : ""
               }`}
             >
@@ -219,34 +249,30 @@ export default function InteriorPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="max-w-[1170px] mx-auto px-6 py-16">
-        <div className="grid gap-6 md:grid-cols-2">
-          {ctaCards.map((card, index) => (
+      <div className="max-w-[1170px] mx-auto grid gap-8 md:grid-cols-2 mb-4">
+          {scenarioCards.map((card) => (
             <div
-              key={index}
-              className="relative h-[300px] rounded-lg overflow-hidden group"
+              key={card.title_1}
+              className="overflow-hidden  "
             >
-              <Image
-                src={card.image}
-                alt={card.title}
-                fill
-                className="object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
-              <div className="absolute inset-x-0 bottom-0 p-6 flex items-end justify-between">
-                <h3 className="text-[24px] font-semibold text-white flex-1">
-                  {card.title}
-                </h3>
-                <ButtonLink
-                  href="/lien-he"
-                  label={card.button}
-                  variant="primary"
-                />
+              <div
+                className="min-h-[300px] bg-cover bg-center flex flex-col justify-between"
+                style={{ backgroundImage: `url(${card.image})` }}
+              ><div></div>
+              <div className="flex flex-col gap-3 px-6 py-4 md:flex-row md:items-center md:justify-between h-[106px ] bg-black/32 backdrop-blur">
+                <div className="">
+                  <h4 className="text-[24px] font-semibold text-white">
+                    {card.title_1}  <br /> {card.title_2}
+                  </h4>
+                  
+                </div>
+                <ButtonLink href="/lien-he" label={card.button} />
               </div>
             </div>
+            </div>
+
           ))}
         </div>
-      </section>
     </>
   );
 }
