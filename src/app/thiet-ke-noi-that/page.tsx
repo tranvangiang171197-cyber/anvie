@@ -1,297 +1,248 @@
-import { SectionHeading } from "@/components/section-heading";
+import type { Metadata } from "next";
+import Image from "next/image";
 import { ButtonLink } from "@/components/button-link";
 
-const services = [
+export const metadata: Metadata = {
+  title: "Quy Trình Thiết Kế Kiến Trúc | Anvie Home",
+  description:
+    "Quy trình thiết kế kiến trúc tại Anvie Home gồm 13 bước đơn giản, rõ ràng, minh bạch và tối ưu.",
+};
+
+const processSteps = [
   {
-    title: "Thiết kế kiến trúc",
+    step: 1,
+    title: "Tiếp nhận yêu cầu và trao đổi",
     description:
-      "Quy hoạch tổng thể, tối ưu công năng – ánh sáng – thông gió ngay từ mặt bằng.",
-    image:
-      "https://images.unsplash.com/photo-1505691723518-36a5ac3be353?auto=format&fit=crop&w=800&q=80",
+      "Khi bạn liên hệ, chúng tôi sẽ lắng nghe kỹ yêu cầu: mục đích sử dụng, phong cách mong muốn, ngân sách và các ưu tiên (ví dụ: ánh sáng, công năng, vật liệu,...).",
+    output: "Đầu ra: tóm tắt yêu cầu khách hàng, phạm vi thiết kế dự kiến.",
+    image: "/design/step_1.png",
+    imagePosition: "right",
   },
   {
-    title: "Thiết kế nội thất",
+    step: 2,
+    title: "Gửi mặt bằng & diện tích",
     description:
-      "Nội thất đặt riêng, vật liệu được chọn lọc để chạm đến cảm xúc tinh tế.",
-    image:
-      "https://images.unsplash.com/photo-1505692952047-1a78307da8f2?auto=format&fit=crop&w=800&q=80",
+      "Khách hàng cung cấp mặt bằng hiện trạng (bản vẽ hoặc ảnh), kích thước các phòng, vị trí cửa, hành lang, đường điện nước cơ bản và các ràng buộc pháp lý nếu có. Nếu chưa có bản vẽ chuẩn, Anvie Home hỗ trợ đo vẽ khảo sát (theo thỏa thuận).",
+    output: "Đầu ra: file mặt bằng cơ sở hoặc báo cáo khảo sát.",
+    image: "/design/step_2.png",
+    imagePosition: "left",
   },
   {
-    title: "Thi công trọn gói",
+    step: 3,
+    title: "Báo giá thiết kế",
     description:
-      "Từ xưởng mộc, cơ khí đến hoàn thiện, đảm bảo đúng tiến độ và ngân sách.",
-    image:
-      "https://images.unsplash.com/photo-1505691722887-195b0c08a59d?auto=format&fit=crop&w=800&q=80",
+      "Dựa trên phạm vi công việc và mặt bằng, chúng tôi lập báo giá chi tiết cho phần thiết kế. Báo giá nêu rõ các khoản đã bao gồm và điều kiện áp dụng.",
+    output: "Đầu ra: tư liệu báo giá bằng văn bản (PDF/Email).",
+    image: "/design/step_3.png",
+    imagePosition: "right",
+  },
+  {
+    step: 4,
+    title: "Ký hợp đồng & thanh toán 50%",
+    description:
+      "Sau khi đồng ý báo giá, hai bên ký hợp đồng dịch vụ thiết kế để cam kết tiến độ, phạm vi và bản quyền sử dụng hồ sơ. Khách hàng thanh toán trước 50% giá trị hợp đồng để bắt đầu triển khai.",
+    output: "Đầu ra: hợp đồng đã ký, biên nhận thanh toán.",
+    image: "/design/step_4.png",
+    imagePosition: "left",
+  },
+  {
+    step: 5,
+    title: "Lên bản vẽ kiến trúc sơ bộ",
+    description:
+      "Đội ngũ thiết kế phát triển phương án sơ bộ: bố trí công năng, khối tích công trình, sơ đồ cảnh quan cơ bản, ghi chú vật liệu chính. Mục tiêu là hình dung tổng thể và đảm bảo phù hợp công năng.",
+    output: "Đầu ra: bản vẽ sơ bộ (mặt bằng, một vài phối cảnh/3D minh họa, ý tưởng vật liệu).",
+    image: "/design/step_5.png",
+    imagePosition: "right",
+  },
+  {
+    step: 6,
+    title: "Khách hàng phản hồi",
+    description:
+      "Khách hàng xem xét bản vẽ sơ bộ và phản hồi về công năng, thẩm mỹ, ghi chú kỹ thuật hoặc yêu cầu chỉnh sửa. Phản hồi càng chi tiết, việc tối ưu sẽ càng nhanh và chính xác.",
+    output: "Đầu ra: danh sách phản hồi/ghi chú chỉnh sửa từ khách hàng.",
+    image: "/design/step_6.png",
+    imagePosition: "left",
+  },
+  {
+    step: 7,
+    title: "Chỉnh sửa và hoàn thiện bản vẽ sơ bộ",
+    description:
+      "Dựa trên phản hồi, kiến trúc sư điều chỉnh phương án sơ bộ, tối ưu mặt bằng, tỉ lệ không gian và hoàn thiện phối cảnh để đạt được phương án chốt.",
+    output: "Đầu ra: bản vẽ sơ bộ hoàn chỉnh và phê duyệt bằng văn bản/Email.",
+    image: "/design/step_7.png",
+    imagePosition: "right",
+  },
+  {
+    step: 8,
+    title: "Thanh toán 30%",
+    description:
+      "Sau khi phương án sơ bộ được duyệt, khách hàng thanh toán 30% tiếp theo theo hợp đồng để Anvie Home triển khai bản vẽ kiến trúc chi tiết.",
+    output: "Đầu ra: biên nhận thanh toán.",
+    image: "/design/step_8.png",
+    imagePosition: "left",
+  },
+  {
+    step: 9,
+    title: "Triển khai bản vẽ kiến trúc chi tiết",
+    description:
+      "Kiến trúc sư và kỹ sư lập hồ sơ thiết kế chi tiết: mặt bằng thi công, mặt cắt, mặt đứng, chi tiết cửa, cầu thang, vị trí điện nước, chi tiết hoàn thiện, bảng vật liệu, hướng dẫn kỹ thuật thi công.",
+    output: "Đầu ra: hồ sơ thiết kế chi tiết đủ để nhà thầu thi công trực tiếp.",
+    image: "/design/step_9.png",
+    imagePosition: "right",
+  },
+  {
+    step: 10,
+    title: "Khách hàng phản hồi",
+    description:
+      "Khách hàng xem xét hồ sơ chi tiết, kiểm tra các chi tiết kỹ thuật, vật liệu và yêu cầu bổ sung. Nếu có điểm chưa rõ, đội ngũ sẽ giải thích và ghi nhận để điều chỉnh.",
+    output: "Đầu ra: danh sách phản hồi chi tiết từ khách hàng.",
+    image: "/design/step_10.png",
+    imagePosition: "left",
+  },
+  {
+    step: 11,
+    title: "Chỉnh sửa & hoàn thiện thiết kế",
+    description:
+      "Anvie Home thực hiện chỉnh sửa cuối cùng theo phản hồi, cập nhật các chi tiết cần thiết và chuẩn bị hồ sơ bản in/bản điện tử hoàn chỉnh để bàn giao.",
+    output: "Đầu ra: hồ sơ thiết kế hoàn thiện.",
+    image: "/design/step_11.png",
+    imagePosition: "right",
+  },
+  {
+    step: 12,
+    title: "Thanh toán 20%",
+    description:
+      "Khách hàng thanh toán phần còn lại (20%) sau khi hồ sơ thiết kế hoàn chỉnh và tất cả điều khoản hợp đồng được thực hiện.",
+    output: "Đầu ra: biên nhận thanh toán cuối cùng.",
+    image: "/design/step_12.png",
+    imagePosition: "left",
+  },
+  {
+    step: 13,
+    title: "Bàn giao hồ sơ thiết kế",
+    description:
+      "Chúng tôi bàn giao toàn bộ hồ sơ (bản in, file mềm, thư mục vật liệu, hướng dẫn thi công, bản vẽ cấu kiện nếu có) và hướng dẫn sơ bộ cho nhà thầu/khách hàng về cách dùng hồ sơ. Anvie Home sẵn sàng hỗ trợ tư vấn trong giai đoạn thi công nếu có yêu cầu bảo hành thiết kế theo hợp đồng.",
+    output: "Đầu ra: bộ hồ sơ bàn giao + biên bản nghiệm thu hồ sơ.",
+    image: "/design/step_13.png",
+    imagePosition: "right",
   },
 ];
 
-const spacePrinciples = [
+const ctaCards = [
   {
-    key: "S",
-    title: "Smart",
-    description: "Giải pháp thông minh cho từng trải nghiệm sống hàng ngày.",
+    title: "Hẹn làm nhà ngay hôm nay",
+    button: "Đặt Lịch Tư Vấn",
+    image: "/design/cta_1.png",
   },
   {
-    key: "P",
-    title: "Pure Aesthetic",
-    description: "Thẩm mỹ tinh tế dựa trên ngôn ngữ tối giản và vật liệu quý.",
-  },
-  {
-    key: "A",
-    title: "Assured Price",
-    description: "Báo giá minh bạch, chia nhỏ từng hạng mục theo tiến độ.",
-  },
-  {
-    key: "C",
-    title: "Craftsmanship",
-    description: "Đội ngũ thi công tay nghề cao, kiểm soát chất lượng từng bước.",
-  },
-  {
-    key: "E",
-    title: "Enduring",
-    description: "Hệ thống vận hành bền vững, dễ bảo trì và nâng cấp.",
-  },
-];
-
-const scenarioCards = [
-  {
-    title: "Quy trình thiết kế tại Anvie",
-    description:
-      "Tư vấn concept, lên phối cảnh, lập hồ sơ kỹ thuật và bàn giao ngay tại nhà.",
-    cta: "Xem quy trình",
-  },
-  {
-    title: "Thiết kế nội thất theo phong cách cá nhân",
-    description:
-      "Chọn layout, moodboard và playlist cảm hứng cho từng thành viên trong gia đình.",
-    cta: "Đặt lịch tư vấn",
-  },
-];
-
-const completedSpaces = [
-  {
-    title: "Không gian Anvie đã hoàn thiện",
-    description:
-      "Hơn 2.500 m² nhà phố, căn hộ và biệt thự đã bàn giao trong 3 năm gần đây.",
-  },
-  {
-    title: "Các mốc đáng nhớ",
-    description:
-      "95% khách hàng quay lại cho hạng mục mới; 400+ đối tác cung ứng vật liệu.",
-  },
-];
-
-const testimonials = [
-  {
-    author: "Anh Hưng – Vinhomes",
-    quote:
-      "Anvie giúp gia đình tôi nhìn rõ hành trình hoàn thiện tổ ấm, mọi thông tin luôn cập nhật kịp lúc.",
-  },
-  {
-    author: "Chị Hoa – Thảo Điền",
-    quote:
-      "Mình trân trọng cách đội ngũ lắng nghe và chuyển hóa gu thẩm mỹ cá nhân thành không gian sống thực tế.",
-  },
-  {
-    author: "Anh Long – Đà Nẵng",
-    quote:
-      "Thi công chuẩn xác, bàn giao đúng tiến độ, không phát sinh chi phí so với hợp đồng.",
-  },
-];
-
-const metrics = [
-  { value: "2.500+ m²", label: "Không gian đã hoàn thiện" },
-  { value: "95%", label: "Khách hàng quay lại" },
-  { value: "400+", label: "Đối tác vật liệu" },
-];
-
-const rules = [
-  {
-    title: "Không thỏa hiệp",
-    description: "Với chất lượng vật liệu và tay nghề thợ trong từng dự án.",
-  },
-  {
-    title: "Không trung gian",
-    description: "Làm việc trực tiếp giữa Anvie và gia chủ, tiết kiệm thời gian.",
-  },
-  {
-    title: "Không chi phí phát sinh",
-    description: "Mọi hạng mục đều minh bạch ngay từ hợp đồng ban đầu.",
+    title: "Báo giá chi tiết cân đối ngân sách của bạn",
+    button: "Nhận Báo Giá Chi Tiết",
+    image: "/design/cta_2.png",
   },
 ];
 
 export default function InteriorPage() {
   return (
     <>
-      <section className="relative overflow-hidden rounded-[40px] bg-stone-900 text-white shadow-[0_40px_120px_rgba(17,12,10,0.45)]">
+      {/* Hero Section */}
+      <section className="relative overflow-hidden text-white">
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage:
-              "url(https://images.unsplash.com/photo-1505692761622-9336a73ea0b7?auto=format&fit=crop&w=1600&q=80)",
-          }}
+          style={{ backgroundImage: `url('/design/process_hero.png')` }}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-stone-900/90 via-stone-900/60 to-stone-900/20" />
-        <div className="relative z-10 grid gap-8 px-10 py-16 md:grid-cols-[1.1fr_0.9fr]">
-          <div className="space-y-6">
-            <p className="text-sm uppercase tracking-[0.3em] text-stone-300">
-              Thiết kế nội thất
-            </p>
-            <h1 className="font-sans text-5xl leading-tight">
-              Sống An Vi Ở An Yên
-            </h1>
-            <p className="text-base text-stone-100">
-              Chúng tôi tạo nên không gian ở cân bằng giữa cảm xúc thẩm mỹ và
-              công năng vận hành, từ căn hộ hiện đại đến biệt thự nghỉ dưỡng.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <ButtonLink href="/du-an" label="Xem portfolio" />
-              <ButtonLink
-                href="/lien-he"
-                label="Đặt lịch gặp gỡ"
-                variant="ghostLight"
-              />
-            </div>
-          </div>
-          <div className="rounded-[32px] bg-white/10 p-8 backdrop-blur">
-            <p className="text-sm uppercase tracking-[0.3em] text-stone-200">
-              Dịch vụ của chúng tôi
-            </p>
-            <p className="mt-4 text-sm text-stone-100">
-              Anvie đồng hành từ khảo sát hiện trạng, thiết kế concept, phát hành
-              hồ sơ kỹ thuật đến thi công và styling bàn giao.
-            </p>
-          </div>
+        <div className="absolute inset-0 bg-black/60" />
+        <div className="relative z-10 flex min-h-[460px] flex-col items-center justify-center gap-6 text-center px-6 py-20">
+          <h1 className="font-bold text-4xl leading-tight md:text-[56px]">
+            Quy Trình Thiết Kế Kiến Trúc Tại
+            <br />
+            Anvie Home
+          </h1>
         </div>
       </section>
 
-      <section className="space-y-8">
-        <SectionHeading
-          title="Dịch vụ của chúng tôi"
-          description="Mỗi hạng mục đều có đội ngũ chuyên biệt, giúp kiểm soát tiến độ và chất lượng."
-        />
-        <div className="grid gap-6 md:grid-cols-3">
-          {services.map((service) => (
-            <div
-              key={service.title}
-              className="overflow-hidden rounded-3xl border border-stone-200/80 bg-white shadow-[0_30px_80px_rgba(15,23,42,0.08)]"
-            >
-              <div
-                className="h-48 bg-cover bg-center"
-                style={{ backgroundImage: `url(${service.image})` }}
-                aria-hidden
-              />
-              <div className="space-y-3 px-6 py-6">
-                <h3 className="font-sans text-2xl text-stone-900">
-                  {service.title}
-                </h3>
-                <p className="text-sm text-stone-600">{service.description}</p>
-              </div>
-            </div>
-          ))}
+      {/* Introduction Section */}
+      <section className="max-w-[1170px] mx-auto px-6 py-16">
+        <div className="text-center mb-12">
+          <h2 className="font-sans text-[32px] md:text-[40px] font-semibold text-black mb-4">
+            Quy Trình Gồm 13 Bước Đơn Giản, Rõ Ràng
+          </h2>
+          <p className="text-base text-secondary max-w-3xl mx-auto leading-relaxed">
+            Tại Anvie Home, quy trình thiết kế được tổ chức chặt chẽ, minh bạch và tối ưu. Mỗi bước đều có đầu ra rõ ràng và có sự tương tác giữa chủ nhà và đội ngũ thiết kế, đảm bảo sản phẩm cuối cùng phản ánh đúng nhu cầu, phong cách và ngân sách của bạn.
+          </p>
         </div>
       </section>
 
-      <section className="rounded-[40px] border border-stone-200/60 bg-stone-900 px-10 py-12 text-white shadow-[0_40px_120px_rgba(17,12,10,0.4)]">
-        <SectionHeading
-          align="center"
-          kicker="5 tiêu chí S.P.A.C.E"
-          title="Kim chỉ nam để Anvie kiến tạo không gian sống an yên"
-        />
-        <div className="mt-10 grid gap-6 md:grid-cols-5">
-          {spacePrinciples.map((item) => (
-            <div
-              key={item.key}
-              className="rounded-3xl border border-white/20 bg-white/5 p-4 text-center"
-            >
-              <p className="text-3xl font-semibold text-terracotta-300">
-                {item.key}
-              </p>
-              <h4 className="mt-2 font-sans text-xl">{item.title}</h4>
-              <p className="mt-2 text-xs text-stone-200">{item.description}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="grid gap-6 md:grid-cols-2">
-        {scenarioCards.map((card) => (
+      {/* Process Steps */}
+      <section className="max-w-[1170px] mx-auto  py-8">
+        {processSteps.map((step, index) => (
           <div
-            key={card.title}
-            className="rounded-3xl border border-stone-200/80 bg-white px-6 py-8 shadow-[0_25px_70px_rgba(15,23,42,0.08)]"
+            key={step.step}
+            className={`grid gap-8 md:grid-cols-2 items-center mb-16 ${
+              step.imagePosition === "left" ? "md:grid-flow-dense" : ""
+            }`}
           >
-            <h3 className="font-sans text-2xl text-stone-900">{card.title}</h3>
-            <p className="mt-3 text-sm text-stone-600">{card.description}</p>
-            <ButtonLink
-              href="/lien-he"
-              label={card.cta}
-              variant="ghost"
-            />
-          </div>
-        ))}
-      </section>
-
-      <section className="space-y-6 rounded-[32px] border border-stone-200/80 bg-white px-8 py-10 shadow-[0_30px_80px_rgba(15,23,42,0.08)]">
-        <SectionHeading
-          title="Những không gian Anvie đã hoàn thiện"
-          description="Ghi dấu bằng sự chỉn chu trong từng đường nét nội thất."
-        />
-        <div className="grid gap-6 md:grid-cols-2">
-          {completedSpaces.map((item) => (
+            {/* Text Content */}
             <div
-              key={item.title}
-              className="rounded-3xl border border-stone-200/80 px-6 py-6"
+              className={`space-y-4 ${
+                step.imagePosition === "left" ? "md:col-start-2" : ""
+              }`}
             >
-              <h4 className="font-sans text-2xl text-stone-900">
-                {item.title}
-              </h4>
-              <p className="mt-2 text-sm text-stone-600">{item.description}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="space-y-6">
-        <SectionHeading
-          title="Trăm lời quảng cáo không bằng feedback"
-          description="Khách hàng là người kể câu chuyện đáng tin nhất."
-        />
-        <div className="grid gap-6 md:grid-cols-3">
-          {testimonials.map((quote) => (
-            <div
-              key={quote.author}
-              className="rounded-3xl border border-stone-200/80 bg-white px-6 py-6 shadow-[0_25px_70px_rgba(15,23,42,0.08)]"
-            >
-              <p className="text-sm text-stone-600">“{quote.quote}”</p>
-              <p className="mt-4 text-xs font-semibold uppercase tracking-[0.3em] text-stone-500">
-                {quote.author}
+              <div className="inline-block bg-primary text-white px-4 py-2 rounded-[12px] h-[52px] w-[138px] text-[24px] font-semibold text-center  flex items-center justify-center">
+                Bước {step.step}
+              </div>
+              <h3 className="font-sans text-[28px] md:text-[32px] font-semibold text-black leading-tight">
+                {step.title}
+              </h3>
+              <p className="text-base text-secondary ">
+                {step.description}
+              </p>
+              <p className="text-base text-secondary ">
+                {step.output}
               </p>
             </div>
-          ))}
-        </div>
-      </section>
 
-      <section className="grid gap-6 rounded-[32px] border border-stone-200/80 bg-white px-8 py-10 shadow-[0_30px_80px_rgba(15,23,42,0.08)] md:grid-cols-3">
-        {metrics.map((metric) => (
-          <div key={metric.label} className="text-center">
-            <p className="font-sans text-4xl text-terracotta-600">
-              {metric.value}
-            </p>
-            <p className="mt-2 text-sm text-stone-600">{metric.label}</p>
+            {/* Image */}
+            <div
+              className={`relative h-[280px]  overflow-hidden ${
+                step.imagePosition === "left" ? "md:col-start-1 md:row-start-1" : ""
+              }`}
+            >
+              <Image
+                src={step.image}
+                alt={step.title}
+                fill
+                className="object-cover"
+              />
+            </div>
           </div>
         ))}
       </section>
 
-      <section className="space-y-6 rounded-[32px] border border-stone-200/80 bg-white px-8 py-10 shadow-[0_30px_80px_rgba(15,23,42,0.08)]">
-        <SectionHeading
-          title="Quy tắc 3 không"
-          description="Cam kết giúp Anvie giữ trọn niềm tin của khách hàng."
-        />
-        <div className="grid gap-6 md:grid-cols-3">
-          {rules.map((rule) => (
-            <div key={rule.title} className="rounded-3xl border border-stone-200/80 px-6 py-6">
-              <h4 className="font-sans text-2xl text-stone-900">{rule.title}</h4>
-              <p className="mt-2 text-sm text-stone-600">{rule.description}</p>
+      {/* CTA Section */}
+      <section className="max-w-[1170px] mx-auto px-6 py-16">
+        <div className="grid gap-6 md:grid-cols-2">
+          {ctaCards.map((card, index) => (
+            <div
+              key={index}
+              className="relative h-[300px] rounded-lg overflow-hidden group"
+            >
+              <Image
+                src={card.image}
+                alt={card.title}
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+              <div className="absolute inset-x-0 bottom-0 p-6 flex items-end justify-between">
+                <h3 className="text-[24px] font-semibold text-white flex-1">
+                  {card.title}
+                </h3>
+                <ButtonLink
+                  href="/lien-he"
+                  label={card.button}
+                  variant="primary"
+                />
+              </div>
             </div>
           ))}
         </div>
@@ -299,4 +250,3 @@ export default function InteriorPage() {
     </>
   );
 }
-
