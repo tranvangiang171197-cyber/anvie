@@ -6,6 +6,7 @@ import { ServicesSection } from "@/components/services-section";
 import { TestimonialsSection } from "@/components/testimonials-section";
 import { AnimateOnScroll } from "@/components/animate-on-scroll";
 import { AnimatedSpaceCriteriaCard, AnimatedScenarioCard, AnimatedMilestoneCard, AnimatedRuleCard } from "@/components/animated-sections";
+import { HeroSection } from "@/components/hero-section";
 import Image from "next/image";
 const hero = {
   title1: "Sống An Vi ",
@@ -66,7 +67,7 @@ const scenarioCards = [
   {
     title_1: "Quy Trình Thiết Kế  ",
     title_2: " Tại Anvie",
-    
+    linkto: "/thiet-ke-noi-that",
     button: "Chi tiết",
     image:
       "/home/what_we_do_1.png",
@@ -74,7 +75,7 @@ const scenarioCards = [
   {
     title_1: "Thiết Kế Nội Thất Theo",
     title_2: " Phong Cách Cá Nhân",
-   
+    linkto: "/lien-he",
     button: "Đặt lịch",
     image:
     "/home/what_we_do_2.png",
@@ -136,27 +137,12 @@ export default async function HomePage() {
 
   return (
     <>
-      <section className="relative overflow-hidden   text-white ">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${hero.image1})` }}
-        />
-        <div className="relative z-10 flex min-h-[400px] md:min-h-[720px] flex-col items-center justify-center gap-4 md:gap-6 text-center px-6 py-16 md:py-20">
-          <h1 className="font-bold text-[32px] mt-8 md:mt-0   leading-tight md:text-[56px]">
-            {hero.title1} <br />   {hero.title2} <br />
-          </h1>
-          <p className="max-w-3xl text-base text-white lg:text-xl font-normal px-4">
-            {hero.subtitle}
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-4 mt-4 md:mt-0">
-            <ButtonLink href="/du-an" label="Khám phá ngay" />
-          </div>
-          <div className="mt-6 flex items-center gap-2">
-            <span className="h-2 w-8  bg-[#B38147] rounded-[12px]" />
-            <span className="h-2 w-2  bg-white rounded-full" />
-          </div>
-        </div>
-      </section>
+      <HeroSection
+        title1={hero.title1}
+        title2={hero.title2}
+        subtitle={hero.subtitle}
+        images={[hero.image1, hero.image2]}
+      />
 
       <ServicesSection />
 

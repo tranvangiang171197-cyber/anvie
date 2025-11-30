@@ -42,6 +42,7 @@ interface ScenarioCardProps {
     title_2: string;
     button: string;
     image: string;
+    linkto: string;
   };
   index: number;
 }
@@ -65,7 +66,7 @@ export function AnimatedScenarioCard({ card, index }: ScenarioCardProps) {
                 {card.title_1} <br /> {card.title_2}
               </h4>
             </div>
-            <ButtonLink href="/lien-he" label={card.button} />
+            <ButtonLink href={card.linkto} label={card.button} />
           </div>
         </div>
       </div>

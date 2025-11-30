@@ -39,7 +39,7 @@ export default function ContactPage() {
       <section className="max-w-[1170px] mx-auto px-6 py-8 md:py-16 mt-4 md:mt-8">
         <div className="grid gap-8 md:gap-12 grid-cols-1 md:grid-cols-12">
           {/* Left Column - Text Content */}
-          <AnimateOnScroll animation="fadeInRight" delay={0} duration={0.7}>
+          <AnimateOnScroll animation="fadeInRight" delay={0} duration={0.7} className="col-span-6">
             <div className="space-y-4 md:space-y-6 md:col-span-6 flex flex-col justify-center">
               <p className="text-sm md:text-base text-secondary leading-relaxed">
                 Chúng tôi luôn sẵn sàng lắng nghe và tư vấn giải pháp phù hợp nhất cho từng nhu cầu, để mỗi khách hàng đều nhận được không gian đúng như mong đợi.
@@ -54,7 +54,7 @@ export default function ContactPage() {
           </AnimateOnScroll>
 
           {/* Right Column - Contact Form */}
-          <AnimateOnScroll animation="fadeInLeft" delay={0.2} duration={0.7}>
+          <AnimateOnScroll animation="fadeInLeft" delay={0.2} duration={0.7} className="col-span-6">
             <div className="bg-[#FFF3E5] p-4 md:p-6 md:col-span-6">
             <h2 className="font-sans text-lg md:text-xl lg:text-[24px] font-semibold text-black mb-4 md:mb-6">
               Liên hệ tư vấn khách hàng
