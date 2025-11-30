@@ -2,12 +2,13 @@
 
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { navLinks } from "@/lib/navigation";
 
 const subMenuItems = [
   { label: "Về Anvie", href: "/an-vi-an-yen" },
-  { label: "Quy Trình", href: "/thiet-ke-noi-that" },
+  { label: "Quy Trình", href: "#thiet-ke-noi-that" },
   { label: "Xưởng sản xuất", href: "#xuong-san-xuat" },
 ];
 
@@ -15,6 +16,7 @@ export function SiteHeader() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSubMenuOpen, setIsSubMenuOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const pathname = usePathname();
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -39,7 +41,7 @@ export function SiteHeader() {
   return (
     <>
       <header className="pointer-events-none absolute left-1/2 top-6 z-30 w-full -translate-x-1/2 px-4">
-        <div className="pointer-events-auto mx-auto flex max-w-[1170px] h-[80px] items-center justify-between bg-black/20 px-10 py-4 text-white shadow-[0_20px_60px_rgba(19,18,16,0.35)] backdrop-blur-[10px]">
+        <div className="pointer-events-auto mx-auto flex max-w-[1170px] h-[80px] items-center justify-between bg-black/40 px-10 py-4 text-white shadow-[0_20px_60px_rgba(19,18,16,0.35)] backdrop-blur-[20px]">
           <Link href="/" className="flex items-center gap-1">
             <Image src="/logo_123.svg" alt="Anvie Home" width={45} height={45} />
             <div className="mt-2">
@@ -76,7 +78,7 @@ export function SiteHeader() {
                       </svg>
                     </button>
                     {isSubMenuOpen && (
-                      <div className="absolute top-full left-0 mt-2 bg-black/90 backdrop-blur-sm rounded-lg shadow-lg py-2 min-w-[200px] z-50">
+                      <div className="absolute top-full left-0 mt-[36px] bg-black/40 shadow-[0_20px_60px_rgba(19,18,16,0.35)] backdrop-blur-xl min-w-[170px] z-50  py-0">
                         {subMenuItems.map((item) => (
                           <Link
                             key={item.href}
@@ -141,15 +143,15 @@ export function SiteHeader() {
             className="absolute inset-0 bg-black/50"
             onClick={() => setIsMenuOpen(false)}
           />
-          <div className="absolute right-0 top-0 h-full w-2/3 bg-white shadow-xl">
+          <div className="absolute right-0 top-0 h-full w-[274px] bg-white shadow-xl">
             <div className="flex flex-col h-full">
               {/* Menu Header */}
-              <div className="flex items-center justify-between p-6 border-b border-gray-200">
-                <Link href="/" className="flex items-center gap-2" onClick={() => setIsMenuOpen(false)}>
-                  <Image src="/logo_123.svg" alt="Anvie Home" width={40} height={40} />
-                  <div>
-                    <p className="text-sm font-semibold text-black uppercase">Anvie Home</p>
-                    <p className="text-xs text-gray-600">Interior & Design</p>
+              <div className="flex items-center justify-between p-6 ">
+                <Link href="/" className="flex items-center gap-1" onClick={() => setIsMenuOpen(false)}>
+                  <Image src="/logo_mb.svg" alt="Anvie Home" width={36} height={33} />
+                  <div className="mt-1">
+                    <p className="text-[8px] font-semibold text-black uppercase">Anvie Home</p>
+                    <p className="text-[6px] text-gray-600">Interior & Design</p>
                   </div>
                 </Link>
                 <button
@@ -174,7 +176,7 @@ export function SiteHeader() {
               </div>
 
               {/* Menu Items */}
-              <nav className="flex-1 overflow-y-auto p-6">
+              <nav className="flex-1 overflow-y-auto pb-6 pt-2 text-center">
                 <div className="space-y-1">
                   {navLinks.map((link) => (
                     <div key={link.href}>
@@ -182,7 +184,11 @@ export function SiteHeader() {
                         <div>
                           <button
                             onClick={() => setIsSubMenuOpen(!isSubMenuOpen)}
-                            className="w-full flex items-center justify-between px-4 py-3 text-left text-black hover:bg-[#B38147] hover:text-white transition rounded-lg"
+                            className={`w-full flex items-center justify-center gap-2 px-4 py-3 text-left transition ${
+                              pathname === link.href || subMenuItems.some(item => item.href !== link.href && pathname === item.href)
+                                ? "bg-[#B38147] text-white"
+                                : "text-black hover:bg-[#B38147] hover:text-white"
+                            }`}
                           >
                             <span>{link.label}</span>
                             <svg
@@ -202,7 +208,7 @@ export function SiteHeader() {
                             </svg>
                           </button>
                           {isSubMenuOpen && (
-                            <div className="ml-4 mt-1 space-y-1">
+                            <div className=" mt-1 space-y-1">
                               {subMenuItems.map((item) => (
                                 <Link
                                   key={item.href}
@@ -211,7 +217,11 @@ export function SiteHeader() {
                                     setIsMenuOpen(false);
                                     setIsSubMenuOpen(false);
                                   }}
-                                  className="block px-4 py-2 text-gray-700 hover:bg-[#B38147] hover:text-white transition rounded-lg"
+                                  className={`block px-4 py-2 transition  ${
+                                    pathname === item.href
+                                      ? "bg-[#B38147] text-white"
+                                      : "text-gray-700 hover:bg-[#B38147] hover:text-white"
+                                  }`}
                                 >
                                   {item.label}
                                 </Link>
@@ -223,7 +233,11 @@ export function SiteHeader() {
                         <Link
                           href={link.href}
                           onClick={() => setIsMenuOpen(false)}
-                          className="block px-4 py-3 text-black hover:bg-[#B38147] hover:text-white transition rounded-lg"
+                          className={`block px-4 py-3 transition  ${
+                            pathname === link.href
+                              ? "bg-[#B38147] text-white"
+                              : "text-black hover:bg-[#B38147] hover:text-white"
+                          }`}
                         >
                           {link.label}
                         </Link>

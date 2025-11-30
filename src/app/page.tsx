@@ -261,7 +261,7 @@ export default async function HomePage() {
       }}
       >
        
-        <div className="relative z-10 flex flex-col items-center gap-4 px-6 py-20 text-center">
+        <div className="relative  flex flex-col items-center gap-4 px-6 py-20 text-center">
           <h3 className="font-sans text-[32px] font-semibold text-white">
           Những Không Gian Anvie Đã Hoàn Thiện
           </h3>
