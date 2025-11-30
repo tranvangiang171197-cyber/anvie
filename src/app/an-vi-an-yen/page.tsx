@@ -77,7 +77,7 @@ export default async function AnViAnYenPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative overflow-hidden text-white">
+      <section className="relative overflow-hidden text-white mx-auto max-w-[1440px] w-full">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${hero.image})` }}
@@ -126,7 +126,7 @@ export default async function AnViAnYenPage() {
       </section>
 
       {/* Thông điệp thương hiệu */}
-      <section className="relative overflow-hidden min-h-[600px] md:min-h-[854px] text-white flex flex-col items-center justify-center px-6 py-8 md:py-16" style={{ zIndex: 1 }}>
+      <section className="mx-auto max-w-[1440px] w-full relative overflow-hidden min-h-[600px] md:min-h-[854px] text-white flex flex-col items-center justify-center px-6 py-8 md:py-16" style={{ zIndex: 1 }}>
       <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url('/anvi/brand.png')` }}
@@ -200,7 +200,7 @@ export default async function AnViAnYenPage() {
       </section>
 
       {/* Trong 5 năm tới */}
-      <section className="bg-[#F4F4F4] px-6 py-12 md:py-20">
+      <section className="bg-[#F4F4F4] px-6 py-12 md:py-20 mx-auto max-w-[1440px] w-full">
         <div className="max-w-[1170px] mx-auto">
           <AnimateOnScroll animation="fadeInDown" delay={0} duration={0.6}>
             <h2 className="text-xl md:text-2xl lg:text-[32px] font-semibold text-black text-center mb-6 px-4">

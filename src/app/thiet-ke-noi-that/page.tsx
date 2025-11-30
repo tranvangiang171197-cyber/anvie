@@ -157,7 +157,7 @@ const scenarioCards = [
 
 export default function InteriorPage() {
   return (
-    <>
+    <div className="mx-auto max-w-[1440px] w-full">
       {/* Hero Section */}
       <section className="relative overflow-hidden text-white">
         <div
@@ -288,6 +288,6 @@ export default function InteriorPage() {
             </AnimateOnScroll>
           ))}
         </div>
-    </>
+    </div> 
   );
 }

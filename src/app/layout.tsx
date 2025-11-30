@@ -39,7 +39,7 @@ export default function RootLayout({
       <body className={`${sans.variable} bg-[#FFFFFF] w-full`}>
         <div className="min-h-screen flex flex-col gap-0 w-full">
           <SiteHeader />
-          <main className="w-full">
+          <main className="w-full ">
             {children}
           </main>
           <SiteFooter />

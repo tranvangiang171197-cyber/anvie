@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <>
+    <div className="mx-auto max-w-[1440px] w-full"  >
       {/* Hero Section */}
       <section className="relative overflow-hidden text-white">
         <div
@@ -150,6 +150,6 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }
