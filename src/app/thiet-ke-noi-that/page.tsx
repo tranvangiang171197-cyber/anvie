@@ -165,7 +165,7 @@ export default function InteriorPage() {
         />
         <div className="absolute inset-0 bg-black/20" />
         <div className="relative z-10 flex min-h-[460px] flex-col items-center justify-center gap-6 text-center px-6 py-20">
-          <h1 className="font-bold text-4xl leading-tight md:text-[56px]">
+          <h1 className="font-bold text-[32px] leading-tight md:text-[56px]">
             Quy Trình Thiết Kế Kiến Trúc Tại
             <br />
             Anvie Home
@@ -174,10 +174,10 @@ export default function InteriorPage() {
       </section>
 
       {/* Introduction Section */}
-      <section className="max-w-[1170px] mx-auto  py-4">
+      <section className="max-w-[1170px] mx-auto  py-4 px-4 md:px-0 mt-8 ">
      
         <div className="text-start mb-12">
-          <h2 className="font-sans text-[32px] font-semibold text-black mb-4">
+          <h2 className="font-sans text-[24px] md:text-[32px] font-semibold text-black mb-4">
             Quy Trình Gồm 13 Bước Đơn Giản, Rõ Ràng
           </h2>
           <p className="text-base text-secondary max-w-3xl font-normal leading-normal ">
@@ -196,11 +196,11 @@ export default function InteriorPage() {
       </section>
 
       {/* Process Steps */}
-      <section className="max-w-[1170px] mx-auto  py-4">
+      <section className="max-w-[1170px] mx-auto  py-4 px-4 md:px-0 mt-6">
         {processSteps.map((step, index) => (
           <div
             key={step.step}
-            className={`grid gap-8 md:grid-cols-2 items-start mb-16 last:mb-0 ${
+            className={`grid gap-8 md:grid-cols-2 items-start mb-8 md:mb-16 last:mb-0 ${
               step.imagePosition === "left" ? "md:grid-flow-dense" : ""
             }`}
           >
@@ -210,7 +210,7 @@ export default function InteriorPage() {
                 step.imagePosition === "left" ? "md:col-start-2" : ""
               }`}
             >
-              <div className="inline-block bg-primary text-white px-4 py-2 rounded-[12px] h-[52px] w-[138px] text-[24px] font-semibold text-center  flex items-center justify-center">
+              <div className="inline-block bg-primary text-white px-4 md:py-2 py-1 rounded-[12px] md:h-[52px] h-[35px] md:min-w-[138px] minw-[87px] md:text-[24px] text-[16px] font-semibold text-center  flex items-center justify-center">
                 Bước {step.step}
               </div>
               <h3 className="font-sans text-[28px] md:text-[32px] font-semibold text-black leading-tight">
@@ -233,7 +233,7 @@ export default function InteriorPage() {
 
             {/* Image */}
             <div
-              className={`relative h-[280px] overflow-hidden ${
+              className={`relative md:h-[280px] h-[170px] overflow-hidden ${
                 step.imagePosition === "left" ? "md:col-start-1 md:row-start-1" : ""
               }`}
             >
@@ -249,7 +249,7 @@ export default function InteriorPage() {
       </section>
 
       {/* CTA Section */}
-      <div className="max-w-[1170px] mx-auto grid gap-8 md:grid-cols-2 mb-4">
+      <div className="max-w-[1170px] mx-auto grid gap-8 md:grid-cols-2 mb-4 w-full px-4 md:px-0 mt-8">
           {scenarioCards.map((card) => (
             <div
               key={card.title_1}
@@ -259,10 +259,10 @@ export default function InteriorPage() {
                 className="min-h-[300px] bg-cover bg-center flex flex-col justify-between"
                 style={{ backgroundImage: `url(${card.image})` }}
               ><div></div>
-              <div className="flex flex-col gap-3 px-6 py-4 md:flex-row md:items-center md:justify-between h-[106px ] bg-black/32 backdrop-blur">
+              <div className="flex flex-col gap-3 px-6 py-4 md:flex-row md:items-center md:justify-between md:min-h-[106px ] minh-[94px] bg-black/32 backdrop-blur">
                 <div className="">
-                  <h4 className="text-[24px] font-semibold text-white">
-                    {card.title_1}  <br /> {card.title_2}
+                  <h4 className="md:text-[24px] text-[14px] font-semibold text-white">
+                    {card.title_1}  <br className="hidden md:block"/> {card.title_2}
                   </h4>
                   
                 </div>
