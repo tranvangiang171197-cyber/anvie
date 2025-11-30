@@ -101,7 +101,7 @@ export function TestimonialsSection() {
         className="mt-6 md:mt-8 w-full overflow-x-hidden scrollbar-hide max-w-[1170px]"
         style={{ WebkitOverflowScrolling: 'touch' }}
       >
-        <div ref={innerContainerRef} className="flex gap-4 md:gap-6 w-max px-4 md:px-0 pb-4">
+        <div ref={innerContainerRef} className="flex gap-4 md:gap-6 w-max px-4 xl:px-0 pb-4">
           {/* Duplicate testimonials for seamless loop */}
           {[...testimonials, ...testimonials].map((testimonial, index) => (
             <div

@@ -165,7 +165,7 @@ export default async function AnViAnYenPage() {
       </section>
 
       {/* Sứ mệnh & Tầm nhìn */}
-      <section className="max-w-[1170px] mx-auto  py-8 md:py-12 w-full px-4 md:px-0">
+      <section className="max-w-[1170px] mx-auto  py-8 md:py-12 w-full px-4 xl:px-0">
         <AnimateOnScroll animation="fadeInUp" delay={0} duration={0.6}>
           <div className="space-y-3">
             <h3 className="text-center md:text-left text-[24px] md:text-[32px] font-semibold text-black">

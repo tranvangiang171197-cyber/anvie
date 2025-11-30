@@ -136,7 +136,7 @@ export default async function HomePage() {
   const news = await getCollectionSummaries("news", 3);
 
   return (
-    <>
+    <div className="mx-auto max-w-[1440px] w-full">
       <HeroSection
         title1={hero.title1}
         title2={hero.title2}
@@ -168,7 +168,7 @@ export default async function HomePage() {
             Anvie kiến tạo không gian sống an yên
             </h3>
           </AnimateOnScroll>
-          <div className="mt-6 md:mt-10 grid gap-4 md:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 px-4 md:px-0">
+          <div className="mt-6 md:mt-10 grid gap-4 md:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 px-4 xl:px-0">
             {spaceCriteria.map((item, index) => (
               <AnimatedSpaceCriteriaCard key={item.key} item={item} index={index} />
             ))}
@@ -176,7 +176,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section className="max-w-[1170px] mx-auto py-8 md:py-16 w-full  px-4 md:px-0">
+      <section className="max-w-[1170px] mx-auto py-8 md:py-16 w-full  px-4 xl:px-0">
         <AnimateOnScroll animation="fadeInUp" delay={0} duration={0.6}>
           <div className="space-y-3">
             <h3 className=" text-[24px] md:text-[32px] font-semibold text-black">
@@ -221,7 +221,7 @@ export default async function HomePage() {
 
       <TestimonialsSection />
 
-      <section className="space-y-4 md:space-y-6 max-w-[1170px] mx-auto px-4 md:px-0 py-8 md:py-16 w-full">
+      <section className="space-y-4 md:space-y-6 max-w-[1170px] mx-auto px-4 xl:px-0 py-8 md:py-16 w-full">
         <AnimateOnScroll animation="fadeInUp" delay={0} duration={0.6}>
           <h3 className="font-sans text-xl md:text-2xl lg:text-[32px] font-semibold text-black text-left">
           Những Cột Mốc <br className="hidden md:block" />
@@ -258,6 +258,6 @@ export default async function HomePage() {
       </section>
 
     
-    </>
+    </div>
   );
 }

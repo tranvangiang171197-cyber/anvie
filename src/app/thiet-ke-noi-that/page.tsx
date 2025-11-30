@@ -177,7 +177,7 @@ export default function InteriorPage() {
       </section>
 
       {/* Introduction Section */}
-      <section className="max-w-[1170px] mx-auto  py-4 px-4 md:px-0 mt-8 ">
+      <section className="max-w-[1170px] mx-auto  py-4 px-4 xl:px-0 mt-8 ">
         <AnimateOnScroll animation="fadeInUp" delay={0} duration={0.7}>
           <div className="text-start mb-12">
             <h2 className="font-sans text-[24px] md:text-[32px] font-semibold text-black mb-4">
@@ -202,7 +202,7 @@ export default function InteriorPage() {
       </section>
 
       {/* Process Steps */}
-      <section className="max-w-[1170px] mx-auto   py-4 px-4 md:px-0 mt-6">
+      <section className="max-w-[1170px] mx-auto   py-4 px-4 xl:px-0 mt-6">
         {processSteps.map((step, index) => (
           <AnimateOnScroll
             key={step.step}
@@ -261,7 +261,7 @@ export default function InteriorPage() {
       </section>
 
       {/* CTA Section */}
-      <div className="max-w-[1170px] mx-auto grid gap-8 md:grid-cols-2 mb-4 w-full px-4 md:px-0 mt-8">
+      <div className="max-w-[1170px] mx-auto grid gap-8 md:grid-cols-2 mb-4 w-full px-4 xl:px-0 mt-8">
           {scenarioCards.map((card, index) => (
             <AnimateOnScroll
               key={card.title_1}

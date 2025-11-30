@@ -22,20 +22,20 @@ const supportLinks = [
 
 export function SiteFooter() {
   return (
-    <footer className=" bg-[#B38147] min-h-[540px] flex items-center justify-center flex-col w-full">
-      <div className="mx-auto max-w-[1170px] px-6 py-12">
-      <div  className="flex items-center gap-1 text-white mb-6">
-              <Link href="/" >
-              <Image src="/logo_123.svg" alt="Anvie Home" width={62} height={62} />
-              </Link>
-              <div className="mt-2">
-                <p className="text-[14px] font-normal uppercase">Anvie Home</p>
-                <p className="text-[8px] font-normal">Architecture & Interior</p>
-              </div>  
-          </div>
-        <div className="grid gap-10 md:grid-cols-12">
+    <footer className="bg-[#B38147] w-full">
+      <div className="mx-auto max-w-[1170px] px-4 md:px-6 xl:px-0 py-8 md:py-12">
+        <div className="flex items-center gap-1 text-white mb-6 md:mb-8">
+          <Link href="/">
+            <Image src="/logo_123.svg" alt="Anvie Home" width={62} height={62} />
+          </Link>
+          <div className="mt-2">
+            <p className="text-[14px] font-normal uppercase">Anvie Home</p>
+            <p className="text-[8px] font-normal">Architecture & Interior</p>
+          </div>  
+        </div>
+        <div className="grid gap-8 md:gap-10 grid-cols-1 md:grid-cols-12">
           {/* Column 1: Logo & Contact */}
-          <div className="space-y-6 text-white col-span-5">
+          <div className="space-y-6 text-white md:col-span-5">
           
             <div className="space-y-4 text-base text-white">
               <div className="flex items-start gap-3">
@@ -76,48 +76,51 @@ export function SiteFooter() {
               </a>
             </div>
           </div>
-      <div className="col-span-7 grid gap-16 md:grid-cols-12">
-
-          {/* Column 2: Dịch vụ nổi bật */}
-          <div className="col-span-4">
-            <p className="font-[400] text-[16px] font-normal text-white mb-4">Dịch vụ nổi bật</p>
-            <div className="flex flex-col gap-3 text-base font-semibold text-white">
-              {serviceLinks.map((item) => (
-                <Link key={item} href="#" className="hover:text-white/80 transition">
-                  {item}
-                </Link>
-              ))}
+          
+          {/* Columns 2-4: Links */}
+          <div className="md:col-span-7 grid gap-8 md:gap-16 grid-cols-1 sm:grid-cols-3">
+            {/* Column 2: Dịch vụ nổi bật */}
+            <div>
+              <p className="font-normal text-[16px] text-white mb-4">Dịch vụ nổi bật</p>
+              <div className="flex flex-col gap-3 text-base font-semibold text-white">
+                {serviceLinks.map((item) => (
+                  <Link key={item} href="#" className="hover:text-white/80 transition">
+                    {item}
+                  </Link>
+                ))}
+              </div>
             </div>
-          </div>
 
-          {/* Column 3: Tin tức nổi bật */}
-          <div className="col-span-4">
-            <p className="font-[400] text-[16px] font-normal text-white mb-4">Tin tức nổi bật</p>
-            <div className="flex flex-col gap-3 text-base font-semibold text-white">
-              {newsroom.map((item) => (
-                <Link key={item} href="#" className="hover:text-white/80 transition">
-                  {item}
-                </Link>
-              ))}
+            {/* Column 3: Tin tức nổi bật */}
+            <div>
+              <p className="font-normal text-[16px] text-white mb-4">Tin tức nổi bật</p>
+              <div className="flex flex-col gap-3 text-base font-semibold text-white">
+                {newsroom.map((item) => (
+                  <Link key={item} href="#" className="hover:text-white/80 transition">
+                    {item}
+                  </Link>
+                ))}
+              </div>
             </div>
-          </div>
 
-          {/* Column 4: Hỗ trợ khách hàng */}
-          <div className="col-span-4">
-            <p className="font-[400] text-[16px] font-normal text-white mb-4">Hỗ trợ khách hàng</p>
-            <div className="flex flex-col gap-3 text-base font-semibold text-white">
-              {supportLinks.map((item) => (
-                <Link key={item} href="#" className="hover:text-white/80 transition">
-                  {item}
-                </Link>
-              ))}
+            {/* Column 4: Hỗ trợ khách hàng */}
+            <div>
+              <p className="font-normal text-[16px] text-white mb-4">Hỗ trợ khách hàng</p>
+              <div className="flex flex-col gap-3 text-base font-semibold text-white">
+                {supportLinks.map((item) => (
+                  <Link key={item} href="#" className="hover:text-white/80 transition">
+                    {item}
+                  </Link>
+                ))}
+              </div>
             </div>
-          </div>
           </div>
         </div>
       </div>
-      <div className=" px-6 py-4 text-center text-sm text-white/70 w-full">
-        © 2025 Anvie. All Rights Reserved
+      <div className="px-4 md:px-6 lg:px-0 py-4 text-center text-sm text-white/70 w-full border-t border-white/20">
+        <div className="max-w-[1170px] mx-auto">
+          © 2025 Anvie. All Rights Reserved
+        </div>
       </div>
     </footer>
   );
