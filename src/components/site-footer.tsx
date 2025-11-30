@@ -22,7 +22,7 @@ const supportLinks = [
 
 export function SiteFooter() {
   return (
-    <footer className="mt-20 bg-[#B38147] h-[540px] flex items-center justify-center flex-col w-full">
+    <footer className=" bg-[#B38147] h-[540px] flex items-center justify-center flex-col w-full">
       <div className="mx-auto max-w-[1170px] px-6 py-12">
       <div  className="flex items-center gap-1 text-white mb-6">
               <Link href="/" >
