@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { ButtonLink } from "@/components/button-link";
+import { AnimateOnScroll } from "@/components/animate-on-scroll";
 
 export const metadata: Metadata = {
   title: "Quy Trình Thiết Kế Kiến Trúc | Anvie Home",
@@ -165,112 +166,126 @@ export default function InteriorPage() {
         />
         <div className="absolute inset-0 bg-black/20" />
         <div className="relative z-10 flex min-h-[460px] flex-col items-center justify-center gap-6 text-center px-6 py-20">
-          <h1 className="font-bold text-[32px] leading-tight md:text-[56px]">
-            Quy Trình Thiết Kế Kiến Trúc Tại
-            <br />
-            Anvie Home
-          </h1>
+          <AnimateOnScroll animation="fadeInDown" delay={0} duration={0.8}>
+            <h1 className="font-bold text-[32px] leading-tight md:text-[56px]">
+              Quy Trình Thiết Kế Kiến Trúc Tại
+              <br />
+              Anvie Home
+            </h1>
+          </AnimateOnScroll>
         </div>
       </section>
 
       {/* Introduction Section */}
       <section className="max-w-[1170px] mx-auto  py-4 px-4 md:px-0 mt-8 ">
-     
-        <div className="text-start mb-12">
-          <h2 className="font-sans text-[24px] md:text-[32px] font-semibold text-black mb-4">
-            Quy Trình Gồm 13 Bước Đơn Giản, Rõ Ràng
-          </h2>
-          <p className="text-base text-secondary max-w-3xl font-normal leading-normal ">
-            Tại Anvie Home, quy trình thiết kế được tổ chức chặt chẽ, minh bạch và tối ưu. Mỗi bước đều có đầu ra rõ ràng và có sự tương tác giữa chủ nhà và đội ngũ thiết kế, đảm bảo sản phẩm cuối cùng phản ánh đúng nhu cầu, phong cách và ngân sách của bạn.
-          </p>
-        </div>
-       <div>
-       < Image
-        src="/design/process.svg"
-        alt="Quy trình thiết kế"
-        width={1170}
-        height={648}
-        className="w-full h-full object-cover"
-       />
-       </div>
+        <AnimateOnScroll animation="fadeInUp" delay={0} duration={0.7}>
+          <div className="text-start mb-12">
+            <h2 className="font-sans text-[24px] md:text-[32px] font-semibold text-black mb-4">
+              Quy Trình Gồm 13 Bước Đơn Giản, Rõ Ràng
+            </h2>
+            <p className="text-base text-secondary max-w-3xl font-normal leading-normal ">
+              Tại Anvie Home, quy trình thiết kế được tổ chức chặt chẽ, minh bạch và tối ưu. Mỗi bước đều có đầu ra rõ ràng và có sự tương tác giữa chủ nhà và đội ngũ thiết kế, đảm bảo sản phẩm cuối cùng phản ánh đúng nhu cầu, phong cách và ngân sách của bạn.
+            </p>
+          </div>
+        </AnimateOnScroll>
+        <AnimateOnScroll animation="fadeInUp" delay={0.2} duration={0.7}>
+          <div>
+            <Image
+              src="/design/process.svg"
+              alt="Quy trình thiết kế"
+              width={1170}
+              height={648}
+              className="w-full h-full object-cover"
+            />
+          </div>
+        </AnimateOnScroll>
       </section>
 
       {/* Process Steps */}
-      <section className="max-w-[1170px] mx-auto  py-4 px-4 md:px-0 mt-6">
+      <section className="max-w-[1170px] mx-auto   py-4 px-4 md:px-0 mt-6">
         {processSteps.map((step, index) => (
-          <div
+          <AnimateOnScroll
             key={step.step}
-            className={`grid gap-8 md:grid-cols-2 items-start mb-8 md:mb-16 last:mb-0 ${
-              step.imagePosition === "left" ? "md:grid-flow-dense" : ""
-            }`}
+            animation={step.imagePosition === "left" ? "fadeInRight" : "fadeInLeft"}
+            delay={index * 0.1}
+            duration={0.7}
           >
-            {/* Text Content */}
             <div
-              className={`space-y-4 ${
-                step.imagePosition === "left" ? "md:col-start-2" : ""
+              className={`grid gap-8 md:grid-cols-2 items-start mb-8 md:pb-16 last:pb-0 ${
+                step.imagePosition === "left" ? "md:grid-flow-dense" : ""
               }`}
             >
-              <div className="inline-block bg-primary text-white px-4 md:py-2 py-1 rounded-[12px] md:h-[52px] h-[35px] md:min-w-[138px] minw-[87px] md:text-[24px] text-[16px] font-semibold text-center  flex items-center justify-center">
-                Bước {step.step}
+              {/* Text Content */}
+              <div
+                className={`space-y-4 ${
+                  step.imagePosition === "left" ? "md:col-start-2" : ""
+                }`}
+              >
+                <div className="inline-block bg-primary text-white px-4 md:py-2 py-1 rounded-[12px] md:h-[52px] h-[35px] md:min-w-[138px] minw-[87px] md:text-[24px] text-[16px] font-semibold text-center  flex items-center justify-center">
+                  Bước {step.step}
+                </div>
+                <h3 className="font-sans text-[28px] md:text-[32px] font-semibold text-black leading-tight">
+                  {step.title}
+                </h3>
+                <p className="text-base text-secondary ">
+                  {step.description}
+                </p>
+                {step.details && (
+                  <ul className="list-disc list-inside space-y-2 text-base text-secondary mt-4">
+                    {step.details.map((detail, idx) => (
+                      <li key={idx}>{detail}</li>
+                    ))}
+                  </ul>
+                )}
+                <p className="text-base text-secondary mt-4">
+                  {step.output}
+                </p>
               </div>
-              <h3 className="font-sans text-[28px] md:text-[32px] font-semibold text-black leading-tight">
-                {step.title}
-              </h3>
-              <p className="text-base text-secondary ">
-                {step.description}
-              </p>
-              {step.details && (
-                <ul className="list-disc list-inside space-y-2 text-base text-secondary mt-4">
-                  {step.details.map((detail, idx) => (
-                    <li key={idx}>{detail}</li>
-                  ))}
-                </ul>
-              )}
-              <p className="text-base text-secondary mt-4">
-                {step.output}
-              </p>
-            </div>
 
-            {/* Image */}
-            <div
-              className={`relative md:h-[280px] h-[170px] overflow-hidden ${
-                step.imagePosition === "left" ? "md:col-start-1 md:row-start-1" : ""
-              }`}
-            >
-              <Image
-                src={step.image}
-                alt={step.title}
-                fill
-                className="object-cover"
-              />
+              {/* Image */}
+              <div
+                className={`relative md:h-[280px] h-[170px] overflow-hidden ${
+                  step.imagePosition === "left" ? "md:col-start-1 md:row-start-1" : ""
+                }`}
+              >
+                <Image
+                  src={step.image}
+                  alt={step.title}
+                  fill
+                  className="object-cover"
+                />
+              </div>
             </div>
-          </div>
+          </AnimateOnScroll>
         ))}
       </section>
 
       {/* CTA Section */}
       <div className="max-w-[1170px] mx-auto grid gap-8 md:grid-cols-2 mb-4 w-full px-4 md:px-0 mt-8">
-          {scenarioCards.map((card) => (
-            <div
+          {scenarioCards.map((card, index) => (
+            <AnimateOnScroll
               key={card.title_1}
-              className="overflow-hidden  "
+              animation={index % 2 === 0 ? "fadeInLeft" : "fadeInRight"}
+              delay={index * 0.15}
+              duration={0.7}
             >
-              <div
-                className="min-h-[300px] bg-cover bg-center flex flex-col justify-between"
-                style={{ backgroundImage: `url(${card.image})` }}
-              ><div></div>
-              <div className="flex flex-col gap-3 px-6 py-4 md:flex-row md:items-center md:justify-between md:min-h-[106px ] minh-[94px] bg-black/32 backdrop-blur">
-                <div className="">
-                  <h4 className="md:text-[24px] text-[14px] font-semibold text-white">
-                    {card.title_1}  <br className="hidden md:block"/> {card.title_2}
-                  </h4>
-                  
+              <div className="overflow-hidden">
+                <div
+                  className="min-h-[300px] bg-cover bg-center flex flex-col justify-between"
+                  style={{ backgroundImage: `url(${card.image})` }}
+                >
+                  <div></div>
+                  <div className="flex flex-col gap-3 px-6 py-4 md:flex-row md:items-center md:justify-between md:min-h-[106px ] minh-[94px] bg-black/32 backdrop-blur">
+                    <div>
+                      <h4 className="md:text-[24px] text-[14px] font-semibold text-white">
+                        {card.title_1}  <br className="hidden md:block"/> {card.title_2}
+                      </h4>
+                    </div>
+                    <ButtonLink href="/lien-he" label={card.button} />
+                  </div>
                 </div>
-                <ButtonLink href="/lien-he" label={card.button} />
               </div>
-            </div>
-            </div>
-
+            </AnimateOnScroll>
           ))}
         </div>
     </>

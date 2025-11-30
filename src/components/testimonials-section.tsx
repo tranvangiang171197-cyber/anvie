@@ -98,7 +98,7 @@ export function TestimonialsSection() {
       {/* Auto-scrolling horizontal slider - All screen sizes */}
       <div 
         ref={scrollContainerRef}
-        className="mt-6 md:mt-8 w-full overflow-x-hidden scrollbar-hide"
+        className="mt-6 md:mt-8 w-full overflow-x-hidden scrollbar-hide max-w-[1170px]"
         style={{ WebkitOverflowScrolling: 'touch' }}
       >
         <div ref={innerContainerRef} className="flex gap-4 md:gap-6 w-max px-4 md:px-0 pb-4">

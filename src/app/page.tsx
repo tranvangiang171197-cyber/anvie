@@ -4,6 +4,8 @@ import { ArticleCard } from "@/components/content-card";
 import { getCollectionSummaries } from "@/lib/content";
 import { ServicesSection } from "@/components/services-section";
 import { TestimonialsSection } from "@/components/testimonials-section";
+import { AnimateOnScroll } from "@/components/animate-on-scroll";
+import { AnimatedSpaceCriteriaCard, AnimatedScenarioCard, AnimatedMilestoneCard, AnimatedRuleCard } from "@/components/animated-sections";
 import Image from "next/image";
 const hero = {
   title1: "Sống An Vi ",
@@ -169,68 +171,42 @@ export default async function HomePage() {
           }}
         />
         <div className="relative z-10 px-6 py-8 md:py-14 text-center">
-          <p className="text-sm md:text-[18px] text-center font-normal text-white">
-          Vì sao chọn Anvie Home cho thiết kế & thi công nội thất?
-          </p>
-          <h3 className="mt-3 text-center text-[18px] md:text-[32px] font-semibold text-white px-4">
-          5 tiêu chí S.P.A.C.E (không gian sống) là kim chỉ nam để <br className="hidden md:block" />
-          Anvie kiến tạo không gian sống an yên
-          </h3>
+          <AnimateOnScroll animation="fadeInDown" delay={0} duration={0.6}>
+            <p className="text-sm md:text-[18px] text-center font-normal text-white">
+            Vì sao chọn Anvie Home cho thiết kế & thi công nội thất?
+            </p>
+          </AnimateOnScroll>
+          <AnimateOnScroll animation="fadeInDown" delay={0.1} duration={0.6}>
+            <h3 className="mt-3 text-center text-[18px] md:text-[32px] font-semibold text-white px-4">
+            5 tiêu chí S.P.A.C.E (không gian sống) là kim chỉ nam để <br className="hidden md:block" />
+            Anvie kiến tạo không gian sống an yên
+            </h3>
+          </AnimateOnScroll>
           <div className="mt-6 md:mt-10 grid gap-4 md:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 px-4 md:px-0">
-            {spaceCriteria.map((item) => (
-              <div
-                key={item.key}
-                className="bg-black/32 p-4 md:p-5 text-left backdrop-blur flex flex-col justify-between min-h-[238px] md:min-h-[433px]"
-              >
-                <div>
-                <p className="text-4xl md:text-[64px] font-semibold text-[#B38147]">{item.key}</p>
-                <p className="mt-1 text-lg md:text-[24px] font-medium text-[#B38147] uppercase">{item.title}</p>
-                </div>
-              
-                <div>
-                <p className="mt-2 text-base md:text-[18px] text-white font-bold">{item.description_title__1} <br /> {item.description_title__2}</p>
-                <p className="mt-2 text-sm md:text-base text-white font-normal">{item.description}</p>
-                </div>
-              </div>
+            {spaceCriteria.map((item, index) => (
+              <AnimatedSpaceCriteriaCard key={item.key} item={item} index={index} />
             ))}
           </div>
         </div>
       </section>
 
       <section className="max-w-[1170px] mx-auto py-8 md:py-16 w-full  px-4 md:px-0">
-        <div className="space-y-3">
-          <h3 className=" text-[24px] md:text-[32px] font-semibold text-black">
-            Nếu có số tiết kiệm 100 triệu, <br className="hidden md:block" /> bạn có thể làm gì với không gian sống của
-            mình?
-          </h3>
-          <p className="text-base md:text-[18px] text-[#515151] font-normal max-w-[520px]">
-            Bạn sẽ bất ngờ với những gì Anvie Home có thể làm được. Chúng tôi sẽ giúp
-            biến khoản tiết kiệm đó thành giải pháp thiết kế và thi công phù hợp riêng
-            cho bạn.
-          </p>
-        </div>
+        <AnimateOnScroll animation="fadeInUp" delay={0} duration={0.6}>
+          <div className="space-y-3">
+            <h3 className=" text-[24px] md:text-[32px] font-semibold text-black">
+              Nếu có số tiết kiệm 100 triệu, <br className="hidden md:block" /> bạn có thể làm gì với không gian sống của
+              mình?
+            </h3>
+            <p className="text-base md:text-[18px] text-[#515151] font-normal max-w-[520px]">
+              Bạn sẽ bất ngờ với những gì Anvie Home có thể làm được. Chúng tôi sẽ giúp
+              biến khoản tiết kiệm đó thành giải pháp thiết kế và thi công phù hợp riêng
+              cho bạn.
+            </p>
+          </div>
+        </AnimateOnScroll>
         <div className="grid gap-4 md:gap-6 md:grid-cols-2 mt-6">
-          {scenarioCards.map((card) => (
-            <div
-              key={card.title_1}
-              className="overflow-hidden  "
-            >
-              <div
-                className="md:min-h-[400px] min-h-[238px] bg-cover bg-center flex flex-col justify-between"
-                style={{ backgroundImage: `url(${card.image})` }}
-              ><div></div>
-              <div className="flex flex-row gap-3 px-4 md:px-6 py-4 md:py-6 items-center justify-between md:min-h-[106px] min-h-[64px] bg-black/32 backdrop-blur">
-                <div className="">
-                  <h4 className="text-base md:text-[24px] font-semibold text-white">
-                    {card.title_1}  <br /> {card.title_2}
-                  </h4>
-                  
-                </div>
-                <ButtonLink href="/lien-he" label={card.button} />
-              </div>
-            </div>
-            </div>
-
+          {scenarioCards.map((card, index) => (
+            <AnimatedScenarioCard key={card.title_1} card={card} index={index} />
           ))}
         </div>
       </section>
@@ -260,33 +236,15 @@ export default async function HomePage() {
       <TestimonialsSection />
 
       <section className="space-y-4 md:space-y-6 max-w-[1170px] mx-auto px-4 md:px-0 py-8 md:py-16 w-full">
-        <h3 className="font-sans text-xl md:text-2xl lg:text-[32px] font-semibold text-black text-left">
-        Những Cột Mốc <br className="hidden md:block" />
-        Đáng "Khoe" Của Anvie
-        </h3>
+        <AnimateOnScroll animation="fadeInUp" delay={0} duration={0.6}>
+          <h3 className="font-sans text-xl md:text-2xl lg:text-[32px] font-semibold text-black text-left">
+          Những Cột Mốc <br className="hidden md:block" />
+          Đáng "Khoe" Của Anvie
+          </h3>
+        </AnimateOnScroll>
         <div className="grid gap-4 md:gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-          {milestones.map((milestone) => (
-            <div
-              key={milestone.label}
-              className="h-[480px] bg-cover bg-center"
-              style={{ backgroundImage: `url(${milestone.image})` }}
-            >
-             
-              <div className="flex flex-col justify-between p-4 md:p-6 text-white w-full h-full">
-                <div>
-                <p className="text-4xl md:text-5xl lg:text-[64px] font-bold">
-                  {milestone.value}
-                </p>
-                <span className="ml-1 text-xl md:text-2xl lg:text-[32px] font-semibold">{milestone.label}</span>
-
-                </div>
-               
-                <div>
-                <p className="text-sm md:text-base text-white">{milestone.description}</p>
-
-                </div>
-              </div>
-            </div>
+          {milestones.map((milestone, index) => (
+            <AnimatedMilestoneCard key={milestone.label} milestone={milestone} index={index} />
           ))}
         </div>
       </section>
@@ -301,28 +259,16 @@ export default async function HomePage() {
         }}
       >
       
-         <h3 className="font-sans text-xl md:text-2xl lg:text-[32px] font-semibold text-white text-center">
-         Quy Tắc 3 Không
-        </h3>
+        <AnimateOnScroll animation="fadeInDown" delay={0} duration={0.6}>
+          <h3 className="font-sans text-xl md:text-2xl lg:text-[32px] font-semibold text-white text-center">
+          Quy Tắc 3 Không
+          </h3>
+        </AnimateOnScroll>
         <div className="mt-6 md:mt-10 grid gap-4 md:gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-[1170px] mx-auto w-full">
-            {rules.map((item) => (
-              <div
-                key={item.title}
-                className="bg-black/60 p-4 md:p-6 text-left flex flex-col justify-between min-h-[300px] md:min-h-[400px]"
-              >
-                <div>
-                <p className="font-semibold text-[#B38147]">
-                  <Image src={item.image} alt={item.title} width={50} height={50} className="md:w-[60px] md:h-[60px]" />
-                </p>
-                </div>
-              
-                <div>
-                <p className="mt-2 text-xl md:text-2xl lg:text-[32px] text-white font-bold">{item.title}</p>
-                <p className="mt-2 text-sm md:text-base text-white font-normal">{item.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+          {rules.map((item, index) => (
+            <AnimatedRuleCard key={item.title} item={item} index={index} />
+          ))}
+        </div>
       </section>
 
     
