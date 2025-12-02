@@ -13,12 +13,12 @@ const services = [
   {
     title: "Thiết kế nội thất",
     description: "Ngôn ngữ nội thất đậm chất Anvie, phù hợp từng gia chủ.",
-    image: "/home/house_1.png",
+    image: "/home/house_3.jpg",
   },
   {
     title: "Thi công nội thất trọn gói",
     description: "Đồng hành từ xưởng tới bàn giao chìa khóa.",
-    image: "/home/house_2.jpg",
+    image: "/home/house_4.jpg",
   },
 ];
 

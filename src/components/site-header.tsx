@@ -5,6 +5,7 @@ import { useState, useEffect, useRef } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import Image from "next/image";
 import { navLinks } from "@/lib/navigation";
+import { useMediaQuery } from "react-responsive";
 
 const subMenuItems = [
   { label: "Về Anvie", href: "/an-vi-an-yen" },
@@ -17,9 +18,7 @@ export function SiteHeader() {
   const [isSubMenuOpen, setIsSubMenuOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
-  const router = useRouter();
-
-  // Debug: log when isMenuOpen changes
+const isMobile = useMediaQuery({ maxWidth: 768 });  // Debug: log when isMenuOpen changes
   useEffect(() => {
     console.log('isMenuOpen changed to:', isMenuOpen);
   }, [isMenuOpen]);
@@ -49,10 +48,10 @@ export function SiteHeader() {
       <header className="pointer-events-none fixed left-1/2 md:top-6 top-4 z-30 w-full -translate-x-1/2 px-4">
         <div className="pointer-events-auto mx-auto flex max-w-[1170px] h-[48px] md:h-[80px] items-center justify-between bg-black/40 px-4 md:px-10 py-4 text-white shadow-[0_20px_60px_rgba(19,18,16,0.35)] backdrop-blur-[20px]">
           <Link href="/" className="flex items-center gap-1 ">
-          <div className="w-[32px] h-[32px] md:w-[45px] md:h-[45px]">
+          <div className="w-[30px] h-[32px] md:w-[52px] md:h-[56px]">
 
        
-            <Image src="/logo_123.svg" alt="Anvie Home" width={45} height={45} />   </div>
+            <Image src="/logo_only_b.svg" alt="Anvie Home" width={52} height={56} />   </div>
             <div className="mt-2">
               <p className="text-[10px] md:text-[14px] font-normal uppercase">Anvie Home</p>
               <p className="text-[6px] md:text-[8px] font-normal">Architecture & Interior</p>

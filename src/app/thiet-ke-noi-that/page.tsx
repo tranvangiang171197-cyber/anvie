@@ -179,7 +179,7 @@ export default function InteriorPage() {
       {/* Introduction Section */}
       <section className="max-w-[1170px] mx-auto  py-4 px-4 xl:px-0 mt-8 ">
         <AnimateOnScroll animation="fadeInUp" delay={0} duration={0.7}>
-          <div className="text-start mb-12">
+          <div className="text-start mb-4 md:mb-12">
             <h2 className="font-sans text-[24px] md:text-[32px] font-semibold text-black mb-4">
               Quy Trình Gồm 13 Bước Đơn Giản, Rõ Ràng
             </h2>
@@ -188,9 +188,9 @@ export default function InteriorPage() {
             </p>
           </div>
         </AnimateOnScroll>
-        <AnimateOnScroll animation="fadeInUp" delay={0.2} duration={0.7}>
-          <div>
-            <Image
+        <AnimateOnScroll animation="fadeInUp" delay={0.2} duration={0.7} >
+        <div className="hidden md:block">
+        <Image
               src="/design/process.svg"
               alt="Quy trình thiết kế"
               width={1170}
