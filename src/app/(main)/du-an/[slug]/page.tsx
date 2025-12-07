@@ -3,7 +3,7 @@ import { getCollectionSlugs, getEntry } from "@/lib/content";
 import { formatDate } from "@/lib/formatters";
 
 type ProjectPageProps = {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 };
 
 export async function generateStaticParams() {
@@ -12,7 +12,7 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: ProjectPageProps) {
-  const { slug } = params;
+  const { slug } = await params;
 
   try {
     const project = await getEntry("projects", slug);
@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: ProjectPageProps) {
 }
 
 export default async function ProjectDetail({ params }: ProjectPageProps) {
-  const { slug } = params;
+  const { slug } = await params;
 
   const project = await getEntry("projects", slug).catch(() => null);
 

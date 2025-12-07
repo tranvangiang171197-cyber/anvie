@@ -96,7 +96,7 @@ const milestones = [
     value: "95",
     label: "%",
     description:
-      "Công trình bàn giao bám sát bản vẽ thiết kế 3D đến 95%, đảm bảo “ngôi nhà trên giấy” bước ra đời thực như bạn mong đợi",
+      "Công trình bàn giao bám sát bản vẽ thiết kế 3D đến 95%, đảm bảo 'ngôi nhà trên giấy' bước ra đời thực như bạn mong đợi",
       image:
       "/home/mile_2.png",
   },
@@ -261,3 +261,4 @@ export default async function HomePage() {
     </div>
   );
 }
+

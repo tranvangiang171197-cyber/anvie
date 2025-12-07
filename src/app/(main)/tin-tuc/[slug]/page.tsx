@@ -3,7 +3,7 @@ import { getCollectionSlugs, getEntry } from "@/lib/content";
 import { formatDate } from "@/lib/formatters";
 
 type NewsPageProps = {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 };
 
 export async function generateStaticParams() {
@@ -12,7 +12,7 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: NewsPageProps) {
-  const { slug } = params;
+  const { slug } = await params;
   try {
     const article = await getEntry("news", slug);
     return {
@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: NewsPageProps) {
 }
 
 export default async function NewsDetail({ params }: NewsPageProps) {
-  const { slug } = params;
+  const { slug } = await params;
 
   const article = await getEntry("news", slug).catch(() => null);
 
