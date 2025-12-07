@@ -34,28 +34,37 @@ export default async function NewsDetail({ params }: NewsPageProps) {
   }
 
   return (
-    <article className="space-y-8">
-      <div className="space-y-4">
-        <p className="text-xs font-semibold uppercase tracking-[0.3em] text-stone-500">
-          {article.category ?? "Tin tức"}
-        </p>
-        <h1 className="font-sans text-4xl text-stone-900">{article.title}</h1>
-        <p className="text-sm text-stone-500">
-          {formatDate(article.date)}
-          {article.readingTime ? ` • ${article.readingTime}` : null}
-        </p>
-      </div>
-      <div
-        className="about-image h-80 rounded-3xl bg-cover bg-center shadow-[0_40px_100px_rgba(15,23,42,0.15)]"
-        style={{
-          backgroundImage: `url(${article.heroImage ?? "/uploads/news-masonry.svg"})`,
-        }}
-      />
-      <div
-        className="prose-content rounded-3xl border border-stone-200/80 bg-white px-8 py-10 shadow-[0_30px_80px_rgba(15,23,42,0.08)]"
-        dangerouslySetInnerHTML={{ __html: article.contentHtml }}
-      />
-    </article>
+    <div className="mx-auto max-w-[1440px] w-full mt-[100px]">
+      <article className="max-w-[1170px] mx-auto w-full px-4 xl:px-0 py-8 md:py-16 space-y-8">
+        {/* Header */}
+        <div className="space-y-4">
+          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-stone-500">
+            {article.category ?? "Tin tức"}
+          </p>
+          <h1 className="font-sans text-4xl text-stone-900">{article.title}</h1>
+          <p className="text-sm text-stone-500">
+            {formatDate(article.date)}
+            {article.readingTime ? ` • ${article.readingTime}` : null}
+          </p>
+        </div>
+
+        {/* Hero Image */}
+        {article.heroImage && (
+          <div
+            className="h-80  bg-cover bg-center shadow-[0_40px_100px_rgba(15,23,42,0.15)]"
+            style={{
+              backgroundImage: `url(${article.heroImage})`,
+            }}
+          />
+        )}
+
+        {/* Content */}
+        <div
+          className="prose-content  border border-stone-200/80 bg-white px-8 py-10 shadow-[0_30px_80px_rgba(15,23,42,0.08)]"
+          dangerouslySetInnerHTML={{ __html: article.contentHtml }}
+        />
+      </article>
+    </div>
   );
 }
 

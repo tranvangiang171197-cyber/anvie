@@ -15,17 +15,13 @@ type PageHeroProps = {
 
 export function PageHero({ kicker, title, description, actions = [] }: PageHeroProps) {
   return (
-    <section className="relative isolate overflow-hidden rounded-3xl bg-gradient-to-br from-sand-50 to-stone-100 px-6 py-16 shadow-[0_20px_60px_rgba(15,23,42,0.08)] md:px-16">
+    <section className="relative isolate overflow-hidden rounded-3xl  px-6 py-16 shadow-[0_20px_60px_rgba(15,23,42,0.08)] md:px-16">
       <div className="max-w-3xl space-y-6">
-        {kicker ? (
-          <p className="text-sm uppercase tracking-[0.3em] text-stone-500">
-            {kicker}
-          </p>
-        ) : null}
-        <h1 className="text-4xl font-sans leading-tight text-stone-900 md:text-5xl">
+      
+        <h1 className="text-4xl font-sans leading-tight text-white md:text-5xl">
           {title}
         </h1>
-        <p className="text-base text-stone-700 md:text-lg">{description}</p>
+        <p className="text-base text-white/80 md:text-lg">{description}</p>
         {actions.length ? (
           <div className="flex flex-wrap gap-3">
             {actions.map((action) => (
