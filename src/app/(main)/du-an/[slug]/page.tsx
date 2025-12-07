@@ -42,7 +42,7 @@ export default async function ProjectDetail({ params }: ProjectPageProps) {
         {/* Hero Image */}
         {project.heroImage && (
           <div
-            className="h-96 w-full rounded-3xl bg-cover bg-center shadow-[0_40px_120px_rgba(15,23,42,0.2)]"
+            className="h-96 w-full  bg-cover bg-center shadow-[0_40px_120px_rgba(15,23,42,0.2)]"
             style={{
               backgroundImage: `url(${project.heroImage})`,
             }}
@@ -87,7 +87,7 @@ export default async function ProjectDetail({ params }: ProjectPageProps) {
 
         {/* Content */}
         <div
-          className="prose-content  border border-stone-200/80 bg-white px-8 py-10 shadow-[0_35px_90px_rgba(15,23,42,0.08)]"
+          className="prose-content  border border-stone-200/80 bg-white px-4 xl:px-8 py-10 shadow-[0_35px_90px_rgba(15,23,42,0.08)]"
           dangerouslySetInnerHTML={{ __html: project.contentHtml }}
         />
       </article>

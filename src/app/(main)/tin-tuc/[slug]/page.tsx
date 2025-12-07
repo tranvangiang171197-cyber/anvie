@@ -60,7 +60,7 @@ export default async function NewsDetail({ params }: NewsPageProps) {
 
         {/* Content */}
         <div
-          className="prose-content  border border-stone-200/80 bg-white px-8 py-10 shadow-[0_30px_80px_rgba(15,23,42,0.08)]"
+          className="prose-content  border border-stone-200/80 bg-white px-4 xl:px-8 py-10 shadow-[0_30px_80px_rgba(15,23,42,0.08)]"
           dangerouslySetInnerHTML={{ __html: article.contentHtml }}
         />
       </article>

@@ -1,17 +1,20 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { TipTapEditor } from "@/components/tiptap-editor";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/components/auth-provider";
-import { logout } from "@/lib/auth";
-import { db } from "@/lib/firebase";
+import { logout, getIdToken } from "@/lib/auth";
+import { db, storage } from "@/lib/firebase";
 import { collection, addDoc, getDocs, query, where, Timestamp } from "firebase/firestore";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
 export default function AdminNewsPage() {
   const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [isUploadingHero, setIsUploadingHero] = useState(false);
+  const heroImageInputRef = useRef<HTMLInputElement>(null);
   const [formData, setFormData] = useState({
     slug: "",
     title: "",
@@ -81,6 +84,71 @@ export default function AdminNewsPage() {
 
   const handleContentChange = (html: string) => {
     setFormData((prev) => ({ ...prev, contentHtml: html }));
+  };
+
+  const handleHeroImageUpload = async (file: File) => {
+    setIsUploadingHero(true);
+    try {
+      const token = await getIdToken();
+      if (!token) {
+        throw new Error("Bạn cần đăng nhập để upload ảnh");
+      }
+
+      // Generate unique filename
+      const timestamp = Date.now();
+      const randomString = Math.random().toString(36).substring(2, 15);
+      const fileExtension = file.name.split(".").pop();
+      const fileName = `hero-${timestamp}-${randomString}.${fileExtension}`;
+
+      // Determine storage path
+      const storagePath = `news/${fileName}`;
+
+      // Upload to Firebase Storage
+      const storageRef = ref(storage, storagePath);
+      await uploadBytes(storageRef, file);
+
+      // Get download URL
+      const url = await getDownloadURL(storageRef);
+
+      // Update form data with the URL
+      setFormData((prev) => ({ ...prev, heroImage: url }));
+    } catch (error: any) {
+      console.error("Error uploading hero image:", error);
+      let errorMessage = "Lỗi khi upload ảnh. Vui lòng thử lại.";
+      
+      if (error?.code === "storage/unauthorized") {
+        errorMessage = "Không có quyền upload. Vui lòng kiểm tra Storage security rules.";
+      } else if (error?.message) {
+        errorMessage = error.message;
+      }
+      
+      alert(errorMessage);
+    } finally {
+      setIsUploadingHero(false);
+    }
+  };
+
+  const handleHeroImageFileInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      // Validate file type
+      const validTypes = ["image/jpeg", "image/jpg", "image/png", "image/webp", "image/gif"];
+      if (!validTypes.includes(file.type)) {
+        alert("Chỉ chấp nhận file ảnh (JPEG, PNG, WebP, GIF)");
+        return;
+      }
+
+      // Validate file size (max 10MB)
+      const maxSize = 10 * 1024 * 1024; // 10MB
+      if (file.size > maxSize) {
+        alert("Kích thước file không được vượt quá 10MB");
+        return;
+      }
+
+      handleHeroImageUpload(file);
+    }
+    // Reset input
+    e.target.value = "";
   };
 
   // Auto-generate slug from title
@@ -254,17 +322,35 @@ export default function AdminNewsPage() {
               <label className="block text-sm font-medium text-stone-700 mb-1">
                 Ảnh đại diện (URL)
               </label>
-              <input
-                type="url"
-                value={formData.heroImage}
-                onChange={(e) =>
-                  setFormData((prev) => ({ ...prev, heroImage: e.target.value }))
-                }
-                className="w-full px-4 py-2 border border-stone-300 rounded-lg focus:ring-2 focus:ring-stone-500 focus:border-transparent"
-                placeholder="https://..."
-              />
+              <div className="flex gap-2">
+                <input
+                  type="url"
+                  value={formData.heroImage}
+                  onChange={(e) =>
+                    setFormData((prev) => ({ ...prev, heroImage: e.target.value }))
+                  }
+                  className="flex-1 px-4 py-2 border border-stone-300 rounded-lg focus:ring-2 focus:ring-stone-500 focus:border-transparent"
+                  placeholder="https://... hoặc upload ảnh"
+                />
+                <input
+                  ref={heroImageInputRef}
+                  type="file"
+                  accept="image/*"
+                  onChange={handleHeroImageFileInput}
+                  className="hidden"
+                  disabled={isUploadingHero}
+                />
+                <button
+                  type="button"
+                  onClick={() => heroImageInputRef.current?.click()}
+                  disabled={isUploadingHero}
+                  className="px-4 py-2 border border-stone-300 rounded-lg text-stone-700 hover:bg-stone-50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap"
+                >
+                  {isUploadingHero ? "Đang upload..." : "📷 Upload"}
+                </button>
+              </div>
               <p className="text-xs text-stone-500 mt-1">
-                Hoặc upload ảnh trong editor bên dưới và copy URL
+                Nhập URL hoặc click "Upload" để tải ảnh lên
               </p>
             </div>
           </div>
