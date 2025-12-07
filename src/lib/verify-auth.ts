@@ -1,8 +1,7 @@
 import { NextRequest } from "next/server";
-import { auth } from "./firebase";
-import { getAuth } from "firebase/auth";
 
 // Verify Firebase ID token from request headers
+// Note: This is a simplified version. In production, use Firebase Admin SDK
 export async function verifyAuth(request: NextRequest) {
   try {
     const authHeader = request.headers.get("authorization");
