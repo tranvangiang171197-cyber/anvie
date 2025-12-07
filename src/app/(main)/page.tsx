@@ -24,8 +24,8 @@ const spaceCriteria = [
   {
     key: "S",
     title: "Smart",
-    description_title__1: "Tối ưu công năng .",
-    description_title__2: " hiệu năng.",
+    description_title__1: "Tối ưu công năng",
+    description_title__2: " hiệu năng",
     description:
       "Không gian sống được thiết kế tiện nghi, hài hòa và bền vững",
   },

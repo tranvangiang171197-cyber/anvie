@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { GoogleAnalytics } from "@/components/google-analytics";
 import "./globals.css";
 
 const sans = Inter({
@@ -37,6 +38,7 @@ export default function RootLayout({
   return (
     <html lang="vi">
       <body className={`${sans.variable} bg-[#FFFFFF] w-full`}>
+        <GoogleAnalytics />
         <div className="min-h-screen flex flex-col gap-0 w-full">
           {children}
         </div>

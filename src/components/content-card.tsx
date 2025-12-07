@@ -21,7 +21,7 @@ export function ContentCard({
   return (
     <Link
       href={href}
-      className="group flex flex-col overflow-hidden rounded-3xl border border-stone-200/80 bg-white shadow-[0_25px_60px_rgba(15,23,42,0.08)] transition hover:-translate-y-1.5"
+      className="group flex flex-col overflow-hidden border border-stone-200/80 bg-white shadow-[0_25px_60px_rgba(15,23,42,0.08)] transition hover:-translate-y-1.5"
     >
       <div className="relative h-64 w-full overflow-hidden bg-stone-200">
         {heroImage ? (

@@ -27,7 +27,7 @@ export function AnimatedSpaceCriteriaCard({ item, index }: SpaceCriteriaCardProp
           <p className="text-4xl md:text-[64px] font-semibold text-[#B38147]">{item.key}</p>
           <p className="mt-1 text-lg md:text-[24px] font-medium text-[#B38147] uppercase">{item.title}</p>
         </div>
-        <div>
+        <div className="min-h-[150px]">
           <p className="mt-2 text-base md:text-[18px] text-white font-bold">{item.description_title__1} <br /> {item.description_title__2}</p>
           <p className="mt-2 text-sm md:text-base text-white font-normal">{item.description}</p>
         </div>
