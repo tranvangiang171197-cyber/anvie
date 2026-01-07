@@ -203,7 +203,7 @@ export function ContactPageClient() {
             <AnimateOnScroll animation="fadeInRight" delay={0.2} duration={0.7}>
               <div className="grid gap-4  grid-cols-1 md:grid-cols-1 order-1 md:order-2">
                 {/* Transfer Info */}
-                <div className="space-y-4 md:space-y-6 text-black">
+                {/* <div className="space-y-4 md:space-y-6 text-black">
                   <h3 className="font-sans text-xl md:text-2xl lg:text-[32px] font-semibold mb-3 md:mb-4">
                     Thông tin chuyển khoản
                   </h3>
@@ -212,7 +212,7 @@ export function ContactPageClient() {
                     <p>Số tài khoản: 100880484281</p>
                     <p>Người nhận: Nguyễn Thị Mai Hương</p>
                   </div>
-                </div>
+                </div> */}
 
                 {/* Working Hours */}
                 <div className="space-y-4 md:space-y-6 text-black">
