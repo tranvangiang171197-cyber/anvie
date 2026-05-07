@@ -4,6 +4,8 @@ import { SectionHeading } from "@/components/section-heading";
 import { ArticleCard } from "@/components/content-card";
 import { getCollectionSummaries } from "@/lib/content";
 
+export const revalidate = 60;
+
 export default async function NewsPage() {
   const news = await getCollectionSummaries("news");
 

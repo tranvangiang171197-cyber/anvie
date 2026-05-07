@@ -6,6 +6,9 @@ type NewsPageProps = {
   params: Promise<{ slug: string }>;
 };
 
+export const revalidate = 60;
+export const dynamicParams = true;
+
 export async function generateStaticParams() {
   const slugs = await getCollectionSlugs("news");
   return slugs.map((slug) => ({ slug }));

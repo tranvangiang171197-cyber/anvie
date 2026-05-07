@@ -217,6 +217,12 @@ export default function AdminPage() {
                     >
                       Xem
                     </Link>
+                    <Link
+                      href={`/admin/tin-tuc/${article.id}`}
+                      className="px-3 py-1.5 text-sm bg-stone-900 text-white rounded-lg hover:bg-stone-800 transition-colors"
+                    >
+                      Sửa
+                    </Link>
                     <button
                       onClick={() => handleDelete("news", article.id, article.title)}
                       disabled={deleting === article.id}
@@ -272,6 +278,12 @@ export default function AdminPage() {
                       className="px-3 py-1.5 text-sm border border-stone-300 rounded-lg text-stone-700 hover:bg-stone-100 transition-colors"
                     >
                       Xem
+                    </Link>
+                    <Link
+                      href={`/admin/du-an/${project.id}`}
+                      className="px-3 py-1.5 text-sm bg-stone-900 text-white rounded-lg hover:bg-stone-800 transition-colors"
+                    >
+                      Sửa
                     </Link>
                     <button
                       onClick={() => handleDelete("projects", project.id, project.title)}
